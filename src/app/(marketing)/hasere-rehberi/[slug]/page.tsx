@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { Bug, BugOff, BugPlay, Rat, Worm, type LucideIcon } from "lucide-react";
+import { AlertTriangle, Bug, BugOff, BugPlay, Rat, ShieldCheck, Worm, type LucideIcon } from "lucide-react";
 import { PESTS, getPestBySlug, type PestIcon } from "@/lib/data/pests";
 
 const ICONS: Record<PestIcon, LucideIcon> = {
@@ -59,9 +59,48 @@ export default function PestDetailPage({ params }: PageProps) {
           {pest.details}
         </p>
 
-        <div className="mt-10 rounded-2xl border border-primary-green/30 bg-primary-green/5 p-6">
+        <div className="mt-14">
+          <h2 className="flex items-center gap-2 text-xl font-bold text-ink">
+            <AlertTriangle size={20} className="text-primary-red" />
+            Neden Tehlikeli?
+          </h2>
+          <div className="mt-5 grid grid-cols-1 gap-3 sm:grid-cols-2">
+            {pest.harms.map((harm) => (
+              <div
+                key={harm}
+                className="rounded-xl border-l-4 border-primary-red bg-primary-red/5 p-4 text-sm leading-relaxed text-ink/70"
+              >
+                {harm}
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div className="mt-14">
+          <h2 className="flex items-center gap-2 text-xl font-bold text-ink">
+            <ShieldCheck size={20} className="text-primary-green" />
+            Çözüm Sürecimiz
+          </h2>
+          <div className="mt-5 space-y-4">
+            {pest.ourProcess.map((process, i) => (
+              <div key={process.step} className="flex gap-4 rounded-xl border border-ink/10 p-4">
+                <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-primary-green/10 text-sm font-bold text-primary-green">
+                  {i + 1}
+                </span>
+                <div>
+                  <p className="text-sm font-bold text-ink">{process.step}</p>
+                  <p className="mt-1 text-sm leading-relaxed text-ink/60">
+                    {process.description}
+                  </p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div className="mt-14 rounded-2xl border border-primary-green/30 bg-primary-green/5 p-6">
           <p className="text-sm font-semibold text-ink">
-            {pest.name} ile mi mücadele ediyorsunuz?
+            Bu Sorunla mı Karşılaştınız?
           </p>
           <p className="mt-1 text-sm text-ink/60">
             Uzman ekibimiz ücretsiz keşif ile durumu yerinde değerlendirsin.

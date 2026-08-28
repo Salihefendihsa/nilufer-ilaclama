@@ -1,0 +1,273 @@
+"use client";
+
+import Link from "next/link";
+import { motion } from "framer-motion";
+import {
+  Biohazard,
+  Bug,
+  Microscope,
+  ShieldAlert,
+  Sparkles,
+  type LucideIcon,
+} from "lucide-react";
+
+type OrbitItem = {
+  label: string;
+  icon: LucideIcon;
+  angle: number;
+};
+
+const ORBIT_ITEMS: OrbitItem[] = [
+  { label: "Mikroplar", icon: Sparkles, angle: -90 },
+  { label: "Virüs & Bakteriler", icon: Microscope, angle: 0 },
+  { label: "Zararlı Alerjenler", icon: ShieldAlert, angle: 90 },
+  { label: "Haşereler", icon: Bug, angle: 180 },
+];
+
+const SEGMENTS = [
+  "Okullar",
+  "Sağlık Ofisleri",
+  "AVM",
+  "Depo",
+  "Dini Merkezler",
+  "Ofisler",
+  "Kreşler",
+  "Perakende",
+  "Spor Salonları",
+];
+
+const RADIUS = 150;
+
+function OrbitDiagram() {
+  return (
+    <div className="relative mx-auto h-[380px] w-[380px] sm:h-[420px] sm:w-[420px]">
+      <svg
+        className="absolute inset-0 h-full w-full"
+        viewBox="0 0 420 420"
+        aria-hidden
+      >
+        <motion.circle
+          cx="210"
+          cy="210"
+          r="180"
+          fill="none"
+          stroke="rgba(93,161,48,0.15)"
+          strokeWidth="1"
+          strokeDasharray="3 9"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          animate={{ rotate: 360 }}
+          transition={{
+            opacity: { duration: 0.6 },
+            rotate: { duration: 20, repeat: Infinity, ease: "linear" },
+          }}
+          style={{ transformOrigin: "210px 210px" }}
+        />
+
+        {ORBIT_ITEMS.map((item) => {
+          const rad = (item.angle * Math.PI) / 180;
+          const x = 210 + RADIUS * Math.cos(rad);
+          const y = 210 + RADIUS * Math.sin(rad);
+          return (
+            <g key={item.label}>
+              <motion.line
+                x1="210"
+                y1="210"
+                x2={x}
+                y2={y}
+                stroke="rgba(93,161,48,0.35)"
+                strokeWidth="2"
+                strokeDasharray="4 4"
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 0.3 }}
+              >
+                <animate
+                  attributeName="stroke-dashoffset"
+                  values="0;-16"
+                  dur="20s"
+                  repeatCount="indefinite"
+                />
+              </motion.line>
+              <circle r="3.5" fill="#5DA130">
+                <animateMotion
+                  path={`M210,210 L${x},${y}`}
+                  dur="2.4s"
+                  begin={`${0.4 * ORBIT_ITEMS.indexOf(item)}s`}
+                  repeatCount="indefinite"
+                />
+                <animate
+                  attributeName="opacity"
+                  values="0;1;1;0"
+                  keyTimes="0;0.1;0.85;1"
+                  dur="2.4s"
+                  begin={`${0.4 * ORBIT_ITEMS.indexOf(item)}s`}
+                  repeatCount="indefinite"
+                />
+              </circle>
+            </g>
+          );
+        })}
+      </svg>
+
+      <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
+        {/* Çok katmanlı, farklı opaklıkta glow halkaları */}
+        <div
+          aria-hidden
+          className="pointer-events-none absolute left-1/2 top-1/2 h-64 w-64 -translate-x-1/2 -translate-y-1/2 rounded-full bg-gradient-to-br from-primary-red/25 via-primary-red/10 to-primary-green/25 blur-3xl"
+        />
+        <div
+          aria-hidden
+          className="pointer-events-none absolute left-1/2 top-1/2 h-48 w-48 -translate-x-1/2 -translate-y-1/2 rounded-full bg-gradient-to-tr from-primary-green/30 via-transparent to-primary-red/30 blur-2xl"
+        />
+
+        {/* Sonar/radar halkaları — farklı gecikmelerle genişleyip kaybolur */}
+        {[0, 0.8, 1.6].map((delay) => (
+          <motion.span
+            key={delay}
+            aria-hidden
+            initial={{ opacity: 0.5, scale: 1 }}
+            animate={{ opacity: 0, scale: 2.4 }}
+            transition={{
+              duration: 2.4,
+              delay,
+              repeat: Infinity,
+              ease: "easeOut",
+            }}
+            className="pointer-events-none absolute left-1/2 top-1/2 h-32 w-32 -translate-x-1/2 -translate-y-1/2 rounded-full border border-primary-green/60"
+          />
+        ))}
+
+        <motion.div
+          initial={{ opacity: 0, scale: 0.7 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="relative flex h-32 w-32 items-center justify-center rounded-full bg-gradient-to-br from-primary-red via-primary-red/80 to-primary-green shadow-2xl shadow-primary-red/30"
+        >
+          <motion.div
+            animate={{ scale: [1, 1.08, 1] }}
+            transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+            className="flex h-24 w-24 items-center justify-center rounded-full bg-white/10 backdrop-blur-sm ring-1 ring-inset ring-white/30"
+          >
+            <Biohazard size={40} className="text-white" strokeWidth={1.6} />
+          </motion.div>
+        </motion.div>
+      </div>
+
+      {ORBIT_ITEMS.map((item, i) => {
+        const rad = (item.angle * Math.PI) / 180;
+        const x = 210 + RADIUS * Math.cos(rad);
+        const y = 210 + RADIUS * Math.sin(rad);
+        const Icon = item.icon;
+        return (
+          <motion.div
+            key={item.label}
+            initial={{ opacity: 0, scale: 0.4 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            whileHover={{
+              scale: 1.1,
+              boxShadow: "0 0 24px rgba(93,161,48,0.45)",
+            }}
+            viewport={{ once: true }}
+            transition={{
+              type: "spring",
+              stiffness: 260,
+              damping: 14,
+              delay: 0.4 + i * 0.15,
+            }}
+            style={{
+              left: x,
+              top: y,
+            }}
+            className="absolute flex w-24 -translate-x-1/2 -translate-y-1/2 cursor-default flex-col items-center gap-2 rounded-2xl border border-ink/10 bg-white p-3 text-center shadow-md transition-shadow duration-300"
+          >
+            <div className="flex h-9 w-9 items-center justify-center rounded-full bg-primary-green/10 text-primary-green">
+              <Icon size={18} strokeWidth={1.8} />
+            </div>
+            <p className="text-[11px] font-semibold leading-tight text-ink">
+              {item.label}
+            </p>
+          </motion.div>
+        );
+      })}
+    </div>
+  );
+}
+
+export default function ScienceSection() {
+  return (
+    <section className="bg-white py-24">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-1 items-center gap-16 lg:grid-cols-2 lg:gap-8">
+          <motion.div
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.6 }}
+          >
+            <div className="inline-flex items-center gap-2 rounded-full border border-primary-green/30 bg-primary-green/5 px-4 py-1.5">
+              <span className="h-1.5 w-1.5 rounded-full bg-primary-green" />
+              <span className="text-xs font-semibold tracking-wide text-primary-green sm:text-sm">
+                BİLİMSEL YAKLAŞIM
+              </span>
+            </div>
+
+            <h2 className="mt-6 text-3xl font-extrabold leading-tight text-ink sm:text-4xl">
+              Kanıta Dayalı, Kalıcı Sonuçlar.
+            </h2>
+
+            <p className="mt-5 text-base leading-relaxed text-ink/60 sm:text-lg">
+              Uygulamalarımız laboratuvar onaylı ürünler ve uluslararası
+              standartlarda (ISO 9001, HACCP uyumlu) risk analizi
+              metodolojisiyle şekillenir. Sahaya çıkmadan önce her tesis
+              için ayrı bir zararlı risk haritası çıkarır, uygulamayı bu
+              veriye göre planlarız — tahmine değil, ölçüme dayanırız.
+            </p>
+
+            <p className="mt-4 text-base leading-relaxed text-ink/60 sm:text-lg">
+              Okullar, sağlık ofisleri, AVM&apos;ler, depolar, dini
+              merkezler, ofisler, kreşler, perakende mağazaları ve spor
+              salonları gibi hassasiyet gerektiren geniş bir yelpazede,
+              10 yılı aşkın saha tecrübemizle güvenle hizmet veriyoruz.
+            </p>
+
+            <div className="mt-6 flex flex-wrap gap-2">
+              {SEGMENTS.map((segment) => (
+                <span
+                  key={segment}
+                  className="rounded-full border border-ink/10 bg-ink/[0.03] px-3 py-1.5 text-xs font-medium text-ink/60"
+                >
+                  {segment}
+                </span>
+              ))}
+            </div>
+
+            <p className="mt-4 text-xs text-ink/45">
+              Her segment için özel risk profili çıkarılır ve ölçülebilir
+              raporlama yapılır.
+            </p>
+
+            <Link
+              href="/teklif"
+              className="mt-8 inline-flex items-center gap-2 rounded-full bg-primary-red px-7 py-3.5 text-sm font-semibold text-white shadow-lg shadow-primary-red/20 transition-colors duration-300 hover:bg-primary-green sm:text-base"
+            >
+              Hizmet Al
+            </Link>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+          >
+            <OrbitDiagram />
+          </motion.div>
+        </div>
+      </div>
+    </section>
+  );
+}

@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { Mail, MapPin, MessageCircle, Phone } from "lucide-react";
-import { COMPANY } from "@/lib/data/company";
+import { COMPANY, mapEmbedUrl } from "@/lib/data/company";
 
 export default function IletisimPage() {
   const [sent, setSent] = useState(false);
@@ -34,9 +34,15 @@ export default function IletisimPage() {
                   <p className="text-sm font-semibold text-ink">Telefon</p>
                   <a
                     href={`tel:${COMPANY.phoneHref}`}
-                    className="text-sm text-ink/60 hover:text-primary-green"
+                    className="block text-sm text-ink/60 hover:text-primary-green"
                   >
                     {COMPANY.phoneDisplay}
+                  </a>
+                  <a
+                    href={`tel:${COMPANY.phoneSecondaryHref}`}
+                    className="block text-sm text-ink/60 hover:text-primary-green"
+                  >
+                    {COMPANY.phoneSecondaryDisplay}
                   </a>
                 </div>
               </li>
@@ -79,11 +85,17 @@ export default function IletisimPage() {
               WhatsApp&apos;tan Yazın
             </a>
 
-            <div className="mt-8 flex h-64 items-center justify-center rounded-2xl border border-dashed border-ink/15 bg-ink/[0.03] text-sm text-ink/40">
-              <div className="flex flex-col items-center gap-2">
-                <MapPin size={22} />
-                Harita yakında burada olacak
-              </div>
+            <div className="mt-8 h-64 overflow-hidden rounded-2xl border border-ink/10">
+              <iframe
+                src={mapEmbedUrl}
+                width="100%"
+                height="100%"
+                style={{ border: 0 }}
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                allowFullScreen
+                title="Nilüfer İlaçlama konum haritası"
+              />
             </div>
           </div>
 

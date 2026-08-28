@@ -1,12 +1,14 @@
 "use client";
 
+import dynamic from "next/dynamic";
 import Image from "next/image";
-import {
-  motion,
-  useMotionValue,
-  useSpring,
-  useTransform,
-} from "framer-motion";
+import Link from "next/link";
+import { motion } from "framer-motion";
+import { Star } from "lucide-react";
+
+const HERO_POSTER_IMAGE = "/images/bahce-cit-ilaclama-uygulama.png";
+
+const HeroVideo = dynamic(() => import("./HeroVideo"), { ssr: false });
 
 const fadeUp = {
   hidden: { opacity: 0, y: 24 },
@@ -17,129 +19,63 @@ const fadeUp = {
   }),
 };
 
-function HeroVisual() {
-  const x = useMotionValue(0);
-  const y = useMotionValue(0);
-
-  const springConfig = { stiffness: 150, damping: 20, mass: 0.5 };
-  const rotateX = useSpring(useTransform(y, [-0.5, 0.5], [8, -8]), springConfig);
-  const rotateY = useSpring(useTransform(x, [-0.5, 0.5], [-8, 8]), springConfig);
-
-  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
-    const rect = e.currentTarget.getBoundingClientRect();
-    x.set((e.clientX - rect.left) / rect.width - 0.5);
-    y.set((e.clientY - rect.top) / rect.height - 0.5);
-  };
-
-  const handleMouseLeave = () => {
-    x.set(0);
-    y.set(0);
-  };
-
-  return (
-    <div className="relative h-[360px] sm:h-[440px] lg:h-[520px]">
-      <div
-        aria-hidden
-        className="pointer-events-none absolute -inset-10 -z-10 rounded-full bg-primary-green/25 opacity-70 blur-3xl"
-      />
-
-      <motion.div
-        onMouseMove={handleMouseMove}
-        onMouseLeave={handleMouseLeave}
-        style={{ rotateX, rotateY, transformPerspective: 1000 }}
-        className="relative h-full w-full"
-      >
-        <div className="relative h-full w-full overflow-hidden rounded-3xl shadow-2xl ring-1 ring-primary-green/40">
-          <Image
-            src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=80"
-            alt="Modern ve temiz bir ev iç mekanı"
-            fill
-            priority
-            sizes="(min-width: 1024px) 50vw, 100vw"
-            className="object-cover"
-          />
-          <div className="absolute inset-0 rounded-3xl ring-1 ring-inset ring-primary-green/30" />
-        </div>
-
-        <motion.div
-          animate={{ y: [0, -10, 0] }}
-          transition={{ duration: 3.2, repeat: Infinity, ease: "easeInOut" }}
-          style={{ transform: "translateZ(40px)" }}
-          className="absolute -bottom-6 left-4 w-56 rounded-2xl border border-white/40 bg-white/70 p-4 shadow-xl backdrop-blur-md sm:left-6"
-        >
-          <div className="flex items-center gap-3">
-            <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-primary-green/15">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="22"
-                height="22"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="#5DA130"
-                strokeWidth="1.75"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                aria-hidden
-              >
-                <circle cx="12" cy="12" r="9" />
-                <circle cx="12" cy="12" r="4.5" />
-                <circle cx="12" cy="12" r="0.75" fill="#5DA130" />
-                <path d="M12 3v2.5" />
-                <path d="M12 18.5V21" />
-                <path d="M3 12h2.5" />
-                <path d="M18.5 12H21" />
-              </svg>
-            </div>
-            <div>
-              <p className="text-sm font-bold leading-tight text-ink">
-                10+ Yıl Tecrübe
-              </p>
-              <p className="text-xs leading-tight text-ink/60">
-                Ruhsatlı, güvenilir uygulama
-              </p>
-            </div>
-          </div>
-        </motion.div>
-      </motion.div>
-    </div>
-  );
-}
+const AVATAR_COLORS = ["bg-primary-green", "bg-primary-red", "bg-ink", "bg-white/30"];
 
 export default function Hero() {
   return (
-    <section className="relative flex min-h-screen w-full items-center overflow-hidden bg-white">
-      <div className="mx-auto grid w-full max-w-7xl grid-cols-1 items-center gap-16 px-4 py-24 sm:px-6 lg:grid-cols-2 lg:gap-12 lg:px-8">
-        <div className="text-center lg:text-left">
-          <motion.h1
+    <section className="relative z-0 flex min-h-screen w-full items-center overflow-hidden bg-ink">
+      <div className="absolute inset-0 z-0">
+        {/* Mobilde performans/veri tasarrufu için statik poster, video yerine gösterilir. */}
+        <Image
+          src={HERO_POSTER_IMAGE}
+          alt="Profesyonel ilaçlama teknisyeni uygulama yaparken"
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover sm:hidden"
+        />
+        <HeroVideo posterSrc={HERO_POSTER_IMAGE} />
+        <div className="absolute inset-0 bg-gradient-to-t from-ink/70 via-ink/40 to-ink/20" />
+        <div className="absolute inset-0 bg-gradient-to-r from-ink/60 via-ink/25 to-transparent" />
+      </div>
+
+      <div className="relative z-10 mx-auto w-full max-w-7xl px-4 py-32 sm:px-6 lg:px-8">
+        <div className="max-w-3xl">
+          <motion.div
             initial="hidden"
             animate="visible"
             custom={0}
             variants={fadeUp}
-            className="text-4xl font-extrabold leading-tight text-ink sm:text-5xl lg:text-6xl"
+            className="inline-flex items-center gap-2 rounded-full border border-white/25 bg-white/5 px-4 py-1.5 backdrop-blur-sm"
           >
-            İlaçlama <span className="text-primary-green">Garantisi</span>
-          </motion.h1>
+            <span className="h-1.5 w-1.5 rounded-full bg-primary-green" />
+            <span className="text-xs font-semibold tracking-wide text-white/90 sm:text-sm">
+              BURSA&apos;NIN GÜVENİLİR İLAÇLAMA FİRMASI
+            </span>
+          </motion.div>
 
-          <motion.p
+          <motion.h1
             initial="hidden"
             animate="visible"
             custom={0.1}
             variants={fadeUp}
-            className="mt-4 text-xl font-semibold text-primary-red sm:text-2xl"
+            className="mt-6 text-5xl font-extrabold leading-[1.05] tracking-tight text-white sm:text-6xl lg:text-7xl"
           >
-            Memnuniyet odaklı kalıcı çözümler
-          </motion.p>
+            <span className="block text-white">Eviniz</span>
+            <span className="block text-white/50">GÜVENDE,</span>
+            <span className="block">
+              Yaşamınız <span className="text-primary-green">Rahat.</span>
+            </span>
+          </motion.h1>
 
           <motion.p
             initial="hidden"
             animate="visible"
             custom={0.2}
             variants={fadeUp}
-            className="mx-auto mt-6 max-w-xl text-base text-ink/70 sm:text-lg lg:mx-0"
+            className="mt-6 text-lg font-semibold text-white/80 sm:text-xl"
           >
-            Konut, işyeri ve endüstriyel tesisler için ruhsatlı ekip ve
-            onaylı ürünlerle uygulanan, uzun ömürlü ve güvenli haşere
-            kontrol hizmetleri sunuyoruz.
+            Memnuniyet Odaklı Kalıcı Çözümler.
           </motion.p>
 
           <motion.div
@@ -147,30 +83,60 @@ export default function Hero() {
             animate="visible"
             custom={0.3}
             variants={fadeUp}
-            className="mt-8 flex flex-col items-center gap-4 sm:flex-row sm:justify-center lg:justify-start"
+            className="mt-9 flex flex-col items-start gap-4 sm:flex-row sm:items-center"
           >
-            <a
+            <Link
               href="/teklif"
-              className="rounded-full bg-primary-red px-7 py-3.5 text-sm font-semibold text-white shadow-lg shadow-primary-red/20 transition-colors duration-300 hover:bg-primary-green sm:text-base"
+              className="rounded-full bg-primary-red px-7 py-3.5 text-sm font-semibold text-white shadow-lg shadow-primary-red/30 transition-colors duration-300 hover:bg-primary-green sm:text-base"
             >
               Ücretsiz Keşif Talep Et
-            </a>
-            <a
+            </Link>
+            <Link
               href="/hizmetlerimiz"
-              className="rounded-full border-2 border-primary-green px-7 py-3.5 text-sm font-semibold text-primary-green transition-colors duration-300 hover:bg-primary-green hover:text-white sm:text-base"
+              className="rounded-full border-2 border-white/70 px-7 py-3.5 text-sm font-semibold text-white transition-colors duration-300 hover:border-primary-green hover:bg-primary-green sm:text-base"
             >
-              Hizmetlerimizi İncele
-            </a>
+              Nasıl Çalışır?
+            </Link>
+          </motion.div>
+
+          <motion.div
+            initial="hidden"
+            animate="visible"
+            custom={0.4}
+            variants={fadeUp}
+            className="mt-14 inline-flex flex-wrap items-center gap-x-6 gap-y-3 rounded-2xl border border-white/15 bg-white/5 px-5 py-4 backdrop-blur-sm"
+          >
+            <div className="flex items-center gap-3">
+              <div className="flex -space-x-2">
+                {AVATAR_COLORS.map((color, i) => (
+                  <span
+                    key={i}
+                    className={`flex h-8 w-8 items-center justify-center rounded-full border-2 border-ink text-[10px] font-bold text-white ${color}`}
+                  >
+                    {String.fromCharCode(65 + i)}
+                  </span>
+                ))}
+              </div>
+              <div className="text-sm text-white/85">
+                <span className="font-bold text-white">500+</span> memnun müşteri{" "}
+                <span className="inline-flex items-center gap-0.5 align-middle">
+                  <Star size={13} className="fill-primary-green text-primary-green" />
+                  <span className="font-semibold text-white">4.9</span>
+                </span>
+              </div>
+            </div>
+            <div className="h-6 w-px bg-white/20" />
+            <div className="text-sm text-white/85">
+              <span className="font-bold text-white">12+</span> aktif ekip
+            </div>
           </motion.div>
         </div>
-
-        <HeroVisual />
       </div>
 
       <motion.div
         animate={{ y: [0, 10, 0] }}
         transition={{ duration: 1.8, repeat: Infinity, ease: "easeInOut" }}
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 text-ink/40"
+        className="absolute bottom-8 left-1/2 -translate-x-1/2 text-white/50"
         aria-hidden
       >
         <svg

@@ -1,136 +1,102 @@
 import { createClient } from "@/lib/supabase/server";
-import type { Database } from "@/lib/supabase/database.types";
-import DashboardCard from "@/components/panel/DashboardCard";
-import LogoutButton from "@/components/panel/LogoutButton";
+import { isSupabaseConfigured } from "@/lib/supabase/env";
+import SupabaseNotice from "@/components/panel/SupabaseNotice";
+import { ClipboardList, Users, Wrench, Briefcase } from "lucide-react";
 
-type Profile = Database["public"]["Tables"]["profiles"]["Row"];
-type Job = Database["public"]["Tables"]["jobs"]["Row"];
-type Payment = Database["public"]["Tables"]["payments"]["Row"];
+type Counts = {
+  customers: number;
+  newQuotes: number;
+  activeJobs: number;
+  staff: number;
+};
 
-async function getDashboardData() {
-  if (
-    !process.env.NEXT_PUBLIC_SUPABASE_URL ||
-    !process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY
-  ) {
-    return {
-      profiles: [] as Profile[],
-      jobs: [] as Job[],
-      payments: [] as Payment[],
-      error: "Supabase ortam değişkenleri henüz tanımlanmadı.",
-    };
+async function getCounts(): Promise<{ counts: Counts | null; error: string | null }> {
+  if (!isSupabaseConfigured()) {
+    return { counts: null, error: null };
   }
 
   try {
     const supabase = createClient();
 
-    const [profilesRes, jobsRes, paymentsRes] = await Promise.all([
+    const [customersRes, newQuotesRes, activeJobsRes, staffRes] = await Promise.all([
+      supabase.from("customers").select("*", { count: "exact", head: true }),
       supabase
-        .from("profiles")
-        .select("*")
-        .order("created_at", { ascending: false })
-        .limit(5),
+        .from("quote_requests")
+        .select("*", { count: "exact", head: true })
+        .eq("status", "new"),
       supabase
         .from("jobs")
-        .select("*")
-        .order("created_at", { ascending: false })
-        .limit(5),
-      supabase
-        .from("payments")
-        .select("*")
-        .order("created_at", { ascending: false })
-        .limit(5),
+        .select("*", { count: "exact", head: true })
+        .in("status", ["pending", "scheduled"]),
+      supabase.from("staff").select("*", { count: "exact", head: true }),
     ]);
 
-    if (profilesRes.error) throw profilesRes.error;
-    if (jobsRes.error) throw jobsRes.error;
-    if (paymentsRes.error) throw paymentsRes.error;
+    if (customersRes.error) throw customersRes.error;
+    if (newQuotesRes.error) throw newQuotesRes.error;
+    if (activeJobsRes.error) throw activeJobsRes.error;
+    if (staffRes.error) throw staffRes.error;
 
     return {
-      profiles: profilesRes.data ?? [],
-      jobs: jobsRes.data ?? [],
-      payments: paymentsRes.data ?? [],
-      error: null as string | null,
+      counts: {
+        customers: customersRes.count ?? 0,
+        newQuotes: newQuotesRes.count ?? 0,
+        activeJobs: activeJobsRes.count ?? 0,
+        staff: staffRes.count ?? 0,
+      },
+      error: null,
     };
   } catch (err) {
     return {
-      profiles: [] as Profile[],
-      jobs: [] as Job[],
-      payments: [] as Payment[],
-      error:
-        err instanceof Error
-          ? err.message
-          : "Veriler alınırken bir hata oluştu.",
+      counts: null,
+      error: err instanceof Error ? err.message : "Veriler alınırken bir hata oluştu.",
     };
   }
 }
 
 export default async function FirmaPanelPage() {
-  const { profiles, jobs, payments, error } = await getDashboardData();
+  const { counts, error } = await getCounts();
+
+  const cards = [
+    { label: "Toplam Müşteri", value: counts?.customers ?? 0, icon: Users },
+    { label: "Yeni Teklif Talebi", value: counts?.newQuotes ?? 0, icon: ClipboardList },
+    { label: "Aktif İş", value: counts?.activeJobs ?? 0, icon: Wrench },
+    { label: "Personel", value: counts?.staff ?? 0, icon: Briefcase },
+  ];
 
   return (
-    <main className="min-h-screen bg-ink/[0.02] px-4 py-10 sm:px-6 lg:px-8">
+    <main className="px-4 py-10 sm:px-6 lg:px-8">
       <div className="mx-auto max-w-6xl">
-        <div className="flex items-center justify-between">
-          <div>
-            <h1 className="text-2xl font-extrabold text-ink">Firma Paneli</h1>
-            <p className="mt-1 text-sm text-ink/60">
-              Kullanıcılar, işler ve ödemelere genel bakış.
-            </p>
-          </div>
-          <LogoutButton />
-        </div>
+        <h1 className="text-2xl font-extrabold text-ink">Dashboard</h1>
+        <p className="mt-1 text-sm text-ink/60">
+          Müşteriler, teklif talepleri, işler ve personele genel bakış.
+        </p>
 
-        {error && (
+        {!isSupabaseConfigured() ? (
+          <div className="mt-6">
+            <SupabaseNotice />
+          </div>
+        ) : error ? (
           <div className="mt-6 rounded-xl border border-primary-red/30 bg-primary-red/5 p-4 text-sm text-primary-red">
             {error}
           </div>
-        )}
+        ) : null}
 
-        <div className="mt-8 grid grid-cols-1 gap-6 lg:grid-cols-3">
-          <DashboardCard
-            title="Son Kullanıcılar"
-            isEmpty={profiles.length === 0}
-            emptyText="Henüz kayıtlı kullanıcı yok."
-          >
-            {profiles.map((profile) => (
-              <li key={profile.id} className="flex items-center justify-between py-2.5 text-sm">
-                <span className="font-medium text-ink">
-                  {profile.full_name ?? "İsimsiz kullanıcı"}
-                </span>
-                <span className="rounded-full bg-ink/5 px-2 py-0.5 text-xs text-ink/50">
-                  {profile.role}
-                </span>
-              </li>
-            ))}
-          </DashboardCard>
-
-          <DashboardCard
-            title="Son İşler"
-            isEmpty={jobs.length === 0}
-            emptyText="Henüz iş kaydı yok."
-          >
-            {jobs.map((job) => (
-              <li key={job.id} className="py-2.5 text-sm">
-                <p className="font-medium text-ink">{job.service_type}</p>
-                <p className="text-xs text-ink/50">{job.status}</p>
-              </li>
-            ))}
-          </DashboardCard>
-
-          <DashboardCard
-            title="Son Ödemeler"
-            isEmpty={payments.length === 0}
-            emptyText="Henüz ödeme kaydı yok."
-          >
-            {payments.map((payment) => (
-              <li key={payment.id} className="flex items-center justify-between py-2.5 text-sm">
-                <span className="text-ink">{payment.payment_type ?? "Ödeme"}</span>
-                <span className="font-semibold text-primary-green">
-                  {payment.amount.toLocaleString("tr-TR")} ₺
-                </span>
-              </li>
-            ))}
-          </DashboardCard>
+        <div className="mt-8 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          {cards.map((card) => {
+            const Icon = card.icon;
+            return (
+              <div
+                key={card.label}
+                className="rounded-2xl border border-ink/10 bg-white p-6 shadow-sm"
+              >
+                <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-primary-green/10 text-primary-green">
+                  <Icon size={20} strokeWidth={1.8} />
+                </div>
+                <p className="mt-4 text-3xl font-extrabold text-ink">{card.value}</p>
+                <p className="mt-1 text-sm text-ink/60">{card.label}</p>
+              </div>
+            );
+          })}
         </div>
       </div>
     </main>

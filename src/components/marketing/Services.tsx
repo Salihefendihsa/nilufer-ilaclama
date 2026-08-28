@@ -26,7 +26,7 @@ export default function Services() {
           </p>
         </div>
 
-        <div className="mt-14 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="mt-14 grid grid-cols-1 gap-6 sm:grid-cols-2">
           {SERVICES.map((service, i) => {
             const Icon = ICONS[service.icon];
             return (
@@ -36,8 +36,7 @@ export default function Services() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, amount: 0.3 }}
                 transition={{ duration: 0.5, delay: i * 0.08 }}
-                whileHover={{ y: -6 }}
-                className="group flex flex-col rounded-2xl border-2 border-transparent bg-white p-6 shadow-md ring-1 ring-ink/5 transition-colors duration-300 hover:border-primary-green hover:shadow-primary-green/20"
+                className="group flex flex-col rounded-2xl border-l-4 border-primary-green bg-white p-7 shadow-md ring-1 ring-ink/5 transition-shadow duration-300 hover:shadow-lg hover:shadow-primary-green/10"
               >
                 <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-primary-green/10 text-primary-green transition-colors duration-300 group-hover:bg-primary-green group-hover:text-white">
                   <Icon size={24} strokeWidth={1.8} />
@@ -49,7 +48,7 @@ export default function Services() {
                   {service.description}
                 </p>
                 <Link
-                  href={`/hizmetlerimiz#${service.slug}`}
+                  href={`/hizmetlerimiz/${service.slug}`}
                   className="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-primary-green transition-colors hover:text-primary-red"
                 >
                   Detaylı Bilgi

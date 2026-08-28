@@ -7,8 +7,12 @@ import { AnimatePresence, motion } from "framer-motion";
 
 const NAV_LINKS = [
   { label: "Anasayfa", href: "/" },
+  { label: "Kurumsal", href: "/kurumsal" },
   { label: "Hizmetlerimiz", href: "/hizmetlerimiz" },
+  { label: "Paketlerimiz", href: "/paketler" },
   { label: "Haşere Rehberi", href: "/hasere-rehberi" },
+  { label: "Şubelerimiz", href: "/subelerimiz" },
+  { label: "S.S.S", href: "/sss" },
   { label: "İletişim", href: "/iletisim" },
 ];
 
@@ -41,7 +45,7 @@ export default function Header() {
           />
         </Link>
 
-        <nav className="hidden items-center gap-8 md:flex">
+        <nav className="hidden items-center gap-4 xl:flex">
           {NAV_LINKS.map((link) => (
             <Link
               key={link.href}
@@ -53,7 +57,7 @@ export default function Header() {
           ))}
         </nav>
 
-        <div className="hidden md:block">
+        <div className="hidden items-center gap-3 xl:flex">
           <Link
             href="/teklif"
             className="rounded-full bg-primary-red px-5 py-2.5 text-sm font-semibold text-white transition-colors duration-300 hover:bg-primary-green"
@@ -67,7 +71,7 @@ export default function Header() {
           aria-label="Menüyü aç/kapat"
           aria-expanded={menuOpen}
           onClick={() => setMenuOpen((v) => !v)}
-          className="flex flex-col items-center justify-center gap-1.5 p-2 md:hidden"
+          className="flex flex-col items-center justify-center gap-1.5 p-2 xl:hidden"
         >
           <motion.span
             animate={menuOpen ? { rotate: 45, y: 7 } : { rotate: 0, y: 0 }}
@@ -91,7 +95,7 @@ export default function Header() {
             animate={{ height: "auto", opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
             transition={{ duration: 0.25, ease: "easeInOut" }}
-            className="overflow-hidden border-t border-ink/10 bg-white/95 backdrop-blur-md md:hidden"
+            className="overflow-hidden border-t border-ink/10 bg-white/95 backdrop-blur-md xl:hidden"
           >
             <div className="flex flex-col gap-1 px-4 py-4 sm:px-6">
               {NAV_LINKS.map((link) => (
@@ -104,6 +108,7 @@ export default function Header() {
                   {link.label}
                 </Link>
               ))}
+
               <Link
                 href="/teklif"
                 onClick={() => setMenuOpen(false)}

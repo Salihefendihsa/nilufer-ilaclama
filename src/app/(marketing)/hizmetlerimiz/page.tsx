@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { ClipboardList, SprayCan, Trees, Wind, type LucideIcon } from "lucide-react";
 import { SERVICES, type ServiceIcon } from "@/lib/data/services";
+import ServiceDetailTabs from "@/components/marketing/ServiceDetailTabs";
 
 export const metadata: Metadata = {
   title: "Hizmetlerimiz | Nilüfer İlaçlama",
@@ -18,6 +19,7 @@ const ICONS: Record<ServiceIcon, LucideIcon> = {
 
 export default function HizmetlerimizPage() {
   return (
+    <>
     <section className="bg-white px-4 py-20 sm:px-6 lg:px-8">
       <div className="mx-auto max-w-5xl">
         <div className="text-center">
@@ -61,5 +63,8 @@ export default function HizmetlerimizPage() {
         </div>
       </div>
     </section>
+
+    <ServiceDetailTabs />
+    </>
   );
 }
