@@ -34,7 +34,7 @@ export default function Hero() {
           sizes="100vw"
           className="object-cover sm:hidden"
         />
-        <HeroVideo posterSrc={HERO_POSTER_IMAGE} />
+        <HeroVideo />
         <div className="absolute inset-0 bg-gradient-to-t from-ink/70 via-ink/40 to-ink/20" />
         <div className="absolute inset-0 bg-gradient-to-r from-ink/60 via-ink/25 to-transparent" />
       </div>
