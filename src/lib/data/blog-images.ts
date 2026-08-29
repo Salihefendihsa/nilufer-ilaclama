@@ -1,3 +1,5 @@
+// TODO: Gerçek saha/ekip fotoğrafı ile değiştirilecek
+
 /**
  * Blog kart görselleri.
  * Gerçek yazı görselleri hazır olduğunda bu sabitleri ilgili dosya

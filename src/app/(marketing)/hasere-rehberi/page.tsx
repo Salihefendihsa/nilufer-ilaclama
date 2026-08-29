@@ -7,6 +7,7 @@ export const metadata: Metadata = {
   title: "Haşere Rehberi | Nilüfer İlaçlama",
   description:
     "En sık karşılaşılan haşere türleri ve mücadele yöntemleri hakkında bilgi alın.",
+  alternates: { canonical: "/hasere-rehberi" },
 };
 
 const ICONS: Record<PestIcon, LucideIcon> = {

@@ -5,6 +5,7 @@ export const metadata: Metadata = {
   title: "Paketlerimiz | Nilüfer İlaçlama",
   description:
     "Ev, işyeri ve kurumsal tesisler için periyodik bakım paketlerimizi inceleyin.",
+  alternates: { canonical: "/paketler" },
 };
 
 export default function PaketlerPage() {

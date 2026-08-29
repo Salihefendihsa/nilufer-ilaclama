@@ -60,6 +60,7 @@ export function generateMetadata({ params }: PageProps): Metadata {
   return {
     title: `${service.title} | Nilüfer İlaçlama`,
     description: service.description,
+    alternates: { canonical: `/hizmetlerimiz/${service.slug}` },
   };
 }
 

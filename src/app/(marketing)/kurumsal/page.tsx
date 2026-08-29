@@ -7,6 +7,7 @@ export const metadata: Metadata = {
   title: "Kurumsal | Nilüfer İlaçlama",
   description:
     "Nilüfer İlaçlama'nın hikayesi, misyonu ve ruhsat/sertifika standartları hakkında bilgi alın.",
+  alternates: { canonical: "/kurumsal" },
 };
 
 const VALUES = [

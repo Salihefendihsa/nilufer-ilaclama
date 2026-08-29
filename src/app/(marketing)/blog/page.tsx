@@ -5,6 +5,7 @@ import { BLOG_POSTS } from "@/lib/data/blog-posts";
 export const metadata: Metadata = {
   title: "Blog | Nilüfer İlaçlama",
   description: "Haşere kontrolü ve ilaçlama hakkında yazılarımız.",
+  alternates: { canonical: "/blog" },
 };
 
 export default function BlogPage() {

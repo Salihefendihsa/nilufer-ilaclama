@@ -26,6 +26,7 @@ export function generateMetadata({ params }: PageProps): Metadata {
   return {
     title: `${pest.name} | Haşere Rehberi | Nilüfer İlaçlama`,
     description: pest.description,
+    alternates: { canonical: `/hasere-rehberi/${pest.slug}` },
   };
 }
 
@@ -46,12 +47,15 @@ export default function PestDetailPage({ params }: PageProps) {
         </Link>
 
         <div className="mt-6 flex items-center gap-5">
-          <div className="flex h-16 w-16 shrink-0 items-center justify-center rounded-2xl bg-primary-red/10 text-primary-red">
-            <Icon size={32} strokeWidth={1.8} />
+          <div className="flex h-20 w-20 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-primary-red to-primary-green text-white shadow-lg">
+            <Icon size={40} strokeWidth={1.8} />
           </div>
           <div>
             <h1 className="text-3xl font-extrabold text-ink">{pest.name}</h1>
             <p className="mt-1 text-sm italic text-ink/45">{pest.latinName}</p>
+            <p className="mt-2 text-sm text-ink/60">
+              {pest.name} — Belirtileri, Zararları ve Çözüm Yöntemleri
+            </p>
           </div>
         </div>
 

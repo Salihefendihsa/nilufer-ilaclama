@@ -4,8 +4,9 @@ import { DISTRICTS } from "@/lib/data/districts";
 import { COMPANY } from "@/lib/data/company";
 
 export const metadata: Metadata = {
-  title: "Şubelerimiz | Nilüfer İlaçlama",
+  title: "Hizmet Bölgelerimiz | Nilüfer İlaçlama",
   description: "Bursa genelindeki hizmet bölgelerimiz ve aktif ekiplerimiz.",
+  alternates: { canonical: "/subelerimiz" },
 };
 
 export default function SubelerimizPage() {
@@ -14,11 +15,12 @@ export default function SubelerimizPage() {
       <div className="mx-auto max-w-5xl">
         <div className="text-center">
           <h1 className="text-3xl font-extrabold text-ink sm:text-4xl">
-            Şubelerimiz
+            Hizmet Bölgelerimiz
           </h1>
           <p className="mt-3 text-ink/60">
             Bursa&apos;nın tüm ilçelerinde konumlanan ekiplerimizle kesintisiz
-            hizmet veriyoruz.
+            hizmet veriyoruz. Tek merkezden, Bursa&apos;nın tüm ilçelerine
+            hızlı ve düzenli hizmet veriyoruz.
           </p>
         </div>
 

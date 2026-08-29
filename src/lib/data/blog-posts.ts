@@ -11,6 +11,7 @@ export type BlogPost = {
   summary: string;
   category: string;
   date: string;
+  author: string;
   image: string;
   content: string[];
 };
@@ -23,6 +24,7 @@ export const BLOG_POSTS: BlogPost[] = [
       "Mutfak ve banyolarda sık görülen hamamböceği sorununa karşı kalıcı çözüm önerileri.",
     category: "İpuçları",
     date: "12 Ağustos 2026",
+    author: "Nilüfer İlaçlama Ekibi",
     image: HAMAMBOCEGI_ONLEM_IMAGE,
     content: [
       "Hamamböceği, Türkiye'deki konut ve işyerlerinde en sık karşılaşılan haşere türlerinin başında gelir. Nemli, sıcak ve gıda kalıntısı bulunan ortamları tercih eden bu haşereler, geceleri aktif oldukları için çoğu zaman fark edilmeden kolonileşir ve kısa sürede kontrolden çıkabilir. İyi haber şu ki, doğru önlemlerle hem istilayı önlemek hem de mevcut bir sorunu kalıcı olarak çözmek mümkün.",
@@ -40,6 +42,7 @@ export const BLOG_POSTS: BlogPost[] = [
       "Erken teşhis için dikkat edilmesi gereken işaretler ve mücadele yöntemleri.",
     category: "Rehber",
     date: "5 Ağustos 2026",
+    author: "Nilüfer İlaçlama Ekibi",
     image: TAHTAKURUSU_BELIRTI_IMAGE,
     content: [
       "Tahtakurusu istilaları, fark edilmesi en zor haşere sorunlarından biridir. Bu küçük, kahverengi böcekler gündüzleri yatak dikişleri, baza aralıkları ve mobilya çatlakları gibi gizli alanlarda saklanır, geceleri ise kan emerek beslenmek için ortaya çıkar. Erken teşhis, hem istilanın yayılmasını önlemek hem de tedavi maliyetini düşürmek açısından kritik önem taşır.",
@@ -57,6 +60,7 @@ export const BLOG_POSTS: BlogPost[] = [
       "Gıda ve otelcilik sektöründe HACCP uyumlu haşere yönetimi neden gereklidir?",
     category: "Sektör Haberleri",
     date: "28 Temmuz 2026",
+    author: "Nilüfer İlaçlama Ekibi",
     image: EK1_RAPORLAMA_IMAGE,
     content: [
       "Gıda üretimi, restoran işletmeciliği ve otelcilik gibi sektörlerde haşere kontrolü, yalnızca konfor meselesi değil, doğrudan yasal bir zorunluluktur. HACCP (Tehlike Analizi ve Kritik Kontrol Noktaları) standartları, işletmelerin haşere risklerini sistematik olarak yönetmesini ve bu süreci belgelemesini şart koşar. Denetimlerde bu belgelerin eksik olması, ciddi para cezalarına hatta faaliyet durdurmaya kadar uzanabilecek sonuçlar doğurabilir.",
@@ -74,6 +78,7 @@ export const BLOG_POSTS: BlogPost[] = [
       "Evcil hayvanınıza zarar vermeden etkili haşere kontrolü nasıl yapılır?",
     category: "Rehber",
     date: "19 Temmuz 2026",
+    author: "Nilüfer İlaçlama Ekibi",
     image: EVCIL_HAYVAN_GUVENLI_IMAGE,
     content: [
       "Evcil hayvan sahipleri, haşere kontrolü söz konusu olduğunda haklı bir endişe taşır: kullanılan ürünlerin kedi, köpek veya diğer ev hayvanlarına zarar verip vermeyeceği. Doğru ürün seçimi ve uygulama protokolüyle, evinizi haşerelerden etkili şekilde korurken evcil hayvanınızın sağlığını da güvence altına almak tamamen mümkündür.",

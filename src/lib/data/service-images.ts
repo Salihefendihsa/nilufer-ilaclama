@@ -1,3 +1,5 @@
+// TODO: Gerçek saha/ekip fotoğrafı ile değiştirilecek
+
 /**
  * Hizmet detay görselleri.
  * Yerel görseller public/images/ altında; henüz gerçek fotoğrafı

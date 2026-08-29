@@ -8,6 +8,7 @@ export const metadata: Metadata = {
   title: "Hizmetlerimiz | Nilüfer İlaçlama",
   description:
     "İlaçlama ve dezenfeksiyon, fümigasyon, peyzaj ve bahçe, danışmanlık hizmetlerimiz.",
+  alternates: { canonical: "/hizmetlerimiz" },
 };
 
 const ICONS: Record<ServiceIcon, LucideIcon> = {

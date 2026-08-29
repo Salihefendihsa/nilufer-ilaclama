@@ -19,6 +19,7 @@ export function generateMetadata({ params }: PageProps): Metadata {
   return {
     title: `${post.title} | Nilüfer İlaçlama`,
     description: post.summary,
+    alternates: { canonical: `/blog/${post.slug}` },
   };
 }
 
@@ -52,7 +53,9 @@ export default function BlogPostPage({ params }: PageProps) {
           </span>
         </div>
 
-        <p className="mt-6 text-xs font-medium text-ink/40">{post.date}</p>
+        <p className="mt-6 text-xs font-medium text-ink/40">
+          {post.date} · {post.author}
+        </p>
         <h1 className="mt-2 text-3xl font-extrabold leading-tight text-ink sm:text-4xl">
           {post.title}
         </h1>

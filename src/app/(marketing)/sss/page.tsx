@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { AnimatePresence, motion } from "framer-motion";
+import { motion } from "framer-motion";
 import { ChevronDown } from "lucide-react";
 
 type Faq = {
@@ -90,21 +90,17 @@ function FaqItem({ faq, index }: { faq: Faq; index: number }) {
           <ChevronDown size={20} />
         </motion.span>
       </button>
-      <AnimatePresence initial={false}>
-        {open && (
-          <motion.div
-            initial={{ height: 0, opacity: 0 }}
-            animate={{ height: "auto", opacity: 1 }}
-            exit={{ height: 0, opacity: 0 }}
-            transition={{ duration: 0.25, ease: "easeInOut" }}
-            className="overflow-hidden"
-          >
-            <p className="px-5 pb-4 text-sm leading-relaxed text-ink/60">
-              {faq.answer}
-            </p>
-          </motion.div>
-        )}
-      </AnimatePresence>
+      <motion.div
+        initial={false}
+        animate={{ height: open ? "auto" : 0, opacity: open ? 1 : 0 }}
+        transition={{ duration: 0.25, ease: "easeInOut" }}
+        className="overflow-hidden"
+        aria-hidden={!open}
+      >
+        <p className="px-5 pb-4 text-sm leading-relaxed text-ink/60">
+          {faq.answer}
+        </p>
+      </motion.div>
     </motion.div>
   );
 }
