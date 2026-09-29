@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import Image from "next/image";
 import Link from "next/link";
 import { AnimatePresence, motion } from "framer-motion";
 import {
@@ -25,7 +24,6 @@ import {
   type LucideIcon,
 } from "lucide-react";
 import { SERVICES, type ServiceIcon, type SubServiceIcon } from "@/lib/data/services";
-import { SERVICE_IMAGES } from "@/lib/data/service-images";
 
 const SERVICE_ICONS: Record<ServiceIcon, LucideIcon> = {
   "spray-can": SprayCan,
@@ -62,7 +60,6 @@ export default function ServiceDetailTabs() {
 
   const activeService = SERVICES[activeIndex];
   const ActiveIcon = SERVICE_ICONS[activeService.icon];
-  const activeImage = SERVICE_IMAGES[activeService.slug];
   const activeDescription =
     solutionTab === "kurumsal"
       ? activeService.corporateDescription
@@ -135,18 +132,10 @@ export default function ServiceDetailTabs() {
               transition={{ duration: 0.35, ease: "easeInOut" }}
               className="grid grid-cols-1 items-center gap-10 lg:grid-cols-2 lg:gap-14"
             >
-              <div className="relative h-72 w-full overflow-hidden rounded-3xl shadow-xl sm:h-96">
-                <Image
-                  src={activeImage}
-                  alt={activeService.title}
-                  fill
-                  sizes="(min-width: 1024px) 50vw, 100vw"
-                  className="object-cover"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-ink/40 via-transparent to-transparent" />
-                <div className="absolute bottom-4 left-4 flex h-11 w-11 items-center justify-center rounded-xl bg-white/90 text-primary-green backdrop-blur-sm">
-                  <ActiveIcon size={22} strokeWidth={1.8} />
-                </div>
+              <div className="flex h-56 w-full items-center justify-center rounded-3xl bg-gradient-to-br from-ink via-ink to-primary-green/40 shadow-xl sm:h-72">
+                <span className="flex h-24 w-24 items-center justify-center rounded-3xl bg-white/10 text-primary-green ring-1 ring-inset ring-white/20">
+                  <ActiveIcon size={44} strokeWidth={1.6} aria-hidden />
+                </span>
               </div>
 
               <div>

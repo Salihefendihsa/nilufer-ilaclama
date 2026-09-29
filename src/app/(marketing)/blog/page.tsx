@@ -28,7 +28,6 @@ export default function BlogPage() {
               summary={post.summary}
               category={post.category}
               date={post.date}
-              image={post.image}
               index={i}
             />
           ))}

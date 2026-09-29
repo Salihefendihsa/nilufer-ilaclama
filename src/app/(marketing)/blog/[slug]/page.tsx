@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import BlogPostCard from "@/components/marketing/BlogPostCard";
@@ -39,21 +38,10 @@ export default function BlogPostPage({ params }: PageProps) {
           ← Blog
         </Link>
 
-        <div className="relative mt-6 h-64 w-full overflow-hidden rounded-3xl shadow-lg sm:h-96">
-          <Image
-            src={post.image}
-            alt={post.title}
-            fill
-            priority
-            sizes="(min-width: 1024px) 768px, 100vw"
-            className="object-cover"
-          />
-          <span className="absolute left-4 top-4 rounded-full bg-primary-green px-3 py-1 text-[11px] font-semibold text-white shadow-md">
+        <p className="mt-6 text-xs font-medium text-ink/40">
+          <span className="mr-2 inline-block rounded-full bg-primary-green px-3 py-1 text-[11px] font-semibold text-white">
             {post.category}
           </span>
-        </div>
-
-        <p className="mt-6 text-xs font-medium text-ink/40">
           {post.date} · {post.author}
         </p>
         <h1 className="mt-2 text-3xl font-extrabold leading-tight text-ink sm:text-4xl">
@@ -94,7 +82,6 @@ export default function BlogPostPage({ params }: PageProps) {
                 summary={p.summary}
                 category={p.category}
                 date={p.date}
-                image={p.image}
                 index={i}
               />
             ))}

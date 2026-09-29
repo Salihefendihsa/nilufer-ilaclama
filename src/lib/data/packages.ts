@@ -20,8 +20,8 @@ export const PACKAGES: PackageItem[] = [
     features: [
       "Aylık 1 ziyaret",
       "Temel haşere kontrolü (hamamböceği, karınca, fare)",
-      "1 yıllık sözleşme",
-      "Sağlık Bakanlığı onaylı ürünler",
+      "Sözleşme süresi teklifte belirlenir",
+      "Ürün seçimi keşifte belirlenir",
       "Uygulama sonrası takip",
       "Telefon desteği",
     ],
@@ -37,10 +37,10 @@ export const PACKAGES: PackageItem[] = [
     features: [
       "Aylık 2 ziyaret",
       "Genel ilaçlama + dezenfeksiyon",
-      "EK-1 raporlama dahil",
-      "Denetime hazır belgelendirme",
+      "Raporlama kapsamı sözleşmede belirlenir",
+      "Belgelendirme ihtiyacına göre planlama",
       "Öncelikli randevu ve hızlı müdahale",
-      "7/24 acil destek hattı",
+      "Öncelikli destek (kapsam sözleşmede belirlenir)",
     ],
     ctaLabel: "Paketi Seç",
   },
@@ -54,7 +54,7 @@ export const PACKAGES: PackageItem[] = [
     features: [
       "Haftalık ziyaret",
       "İlaçlama + fümigasyon + danışmanlık dahil",
-      "Özel SLA ve garanti koşulları",
+      "Özel hizmet seviyesi koşulları teklifte belirlenir",
       "Saha bazlı risk analizi ve raporlama",
       "Personel eğitimi",
       "Özel hesap yöneticisi",

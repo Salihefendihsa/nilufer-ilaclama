@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import {
@@ -22,7 +21,6 @@ import {
   type LucideIcon,
 } from "lucide-react";
 import { SERVICES, getServiceBySlug, type ServiceIcon, type SubServiceIcon } from "@/lib/data/services";
-import { SERVICE_IMAGES } from "@/lib/data/service-images";
 
 const SERVICE_ICONS: Record<ServiceIcon, LucideIcon> = {
   "spray-can": SprayCan,
@@ -69,22 +67,14 @@ export default function ServiceDetailPage({ params }: PageProps) {
   if (!service) notFound();
 
   const Icon = SERVICE_ICONS[service.icon];
-  const image = SERVICE_IMAGES[service.slug];
 
   return (
     <>
       <section className="relative overflow-hidden bg-ink">
-        <div className="absolute inset-0">
-          <Image
-            src={image}
-            alt={service.title}
-            fill
-            priority
-            sizes="100vw"
-            className="object-cover opacity-40"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/85 to-ink/60" />
-        </div>
+        <div
+          aria-hidden
+          className="absolute inset-0 bg-gradient-to-br from-ink via-ink to-primary-green/30"
+        />
 
         <div className="relative mx-auto max-w-5xl px-4 py-24 sm:px-6 lg:px-8">
           <Link

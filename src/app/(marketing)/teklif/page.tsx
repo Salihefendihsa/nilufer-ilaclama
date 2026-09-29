@@ -4,6 +4,8 @@ import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { Building2, CheckCircle2, Factory, Home as HomeIcon, MoreHorizontal } from "lucide-react";
 import { createClient } from "@/lib/supabase/client";
+import { isSupabaseConfigured } from "@/lib/supabase/env";
+import { COMPANY } from "@/lib/data/company";
 import { SERVICES } from "@/lib/data/services";
 
 const PROPERTY_TYPES = [
@@ -88,6 +90,11 @@ export default function TeklifPage() {
     setSubmitError(null);
 
     try {
+      if (!isSupabaseConfigured()) {
+        throw new Error(
+          `Talep formu şu anda kullanılamıyor. Lütfen ${COMPANY.phoneDisplay} numarasını arayın veya WhatsApp'tan yazın.`
+        );
+      }
       const supabase = createClient();
       // No .select() here: anon can INSERT (RLS) but not SELECT quote_requests,
       // and .select() forces a RETURNING read-back that RLS would then reject.
@@ -107,7 +114,7 @@ export default function TeklifPage() {
       setSubmitError(
         err instanceof Error
           ? err.message
-          : "Talebiniz gönderilirken bir hata oluştu. Lütfen tekrar deneyin."
+          : `Talebiniz gönderilemedi. Lütfen tekrar deneyin veya ${COMPANY.phoneDisplay} numarasını arayın.`
       );
     } finally {
       setSubmitting(false);

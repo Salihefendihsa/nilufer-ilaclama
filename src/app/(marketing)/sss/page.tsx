@@ -51,14 +51,14 @@ const FAQS: Faq[] = [
       "Fiyat; alanın metrekaresi, haşere yoğunluğu ve uygulanacak yönteme göre belirlenir. İlk keşif tamamen ücretsizdir ve size özel şeffaf bir teklif sunulur.",
   },
   {
-    question: "Garanti süreniz ne kadar?",
+    question: "Uygulama sonrası takip nasıl yapılıyor?",
     answer:
-      "Uygulama sonrası belirli bir süre için garanti kapsamı sunuyoruz; garanti süresi içinde tekrar sorun yaşanması halinde ek ücret talep etmeden yeniden uygulama yapıyoruz.",
+      "Takip ve tekrar uygulama koşulları hizmete göre değişir ve teklifte yazılı olarak belirtilir. Ayrıntı için keşif sırasında sorabilirsiniz.",
   },
   {
-    question: "Acil durumlar için 7/24 hizmet veriyor musunuz?",
+    question: "Acil durumlarda nasıl ulaşabilirim?",
     answer:
-      "Evet, acil haşere sorunları için çağrı merkezimiz üzerinden 7/24 destek sağlıyoruz. Yoğunluğa göre en kısa sürede ekibimiz size ulaşır.",
+      "Telefon veya WhatsApp üzerinden bize ulaşabilirsiniz. Dönüş ve randevu süresi yoğunluğa göre değişir.",
   },
 ];
 

@@ -1,18 +1,8 @@
-"use client";
-
-import { useState } from "react";
-import { Mail, MapPin, MessageCircle, Phone } from "lucide-react";
+import Link from "next/link";
+import { ClipboardList, Mail, MapPin, MessageCircle, Phone } from "lucide-react";
 import { COMPANY, mapEmbedUrl } from "@/lib/data/company";
 
 export default function IletisimPage() {
-  const [sent, setSent] = useState(false);
-  const [form, setForm] = useState({ name: "", phone: "", email: "", message: "" });
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    setSent(true);
-  };
-
   return (
     <section className="bg-white px-4 py-20 sm:px-6 lg:px-8">
       <div className="mx-auto max-w-6xl">
@@ -99,55 +89,44 @@ export default function IletisimPage() {
             </div>
           </div>
 
-          <div>
-            {sent ? (
-              <div className="rounded-2xl border border-primary-green/30 bg-primary-green/5 p-8 text-center">
-                <p className="text-lg font-bold text-ink">Mesajınız Alındı</p>
-                <p className="mt-2 text-sm text-ink/60">
-                  En kısa sürede size dönüş yapacağız.
-                </p>
-              </div>
-            ) : (
-              <form onSubmit={handleSubmit} className="space-y-4">
-                <input
-                  type="text"
-                  required
-                  placeholder="Ad Soyad *"
-                  value={form.name}
-                  onChange={(e) => setForm((f) => ({ ...f, name: e.target.value }))}
-                  className="w-full rounded-lg border border-ink/15 px-4 py-2.5 text-sm outline-none transition-colors focus:border-primary-green"
-                />
-                <input
-                  type="tel"
-                  required
-                  placeholder="Telefon *"
-                  value={form.phone}
-                  onChange={(e) => setForm((f) => ({ ...f, phone: e.target.value }))}
-                  className="w-full rounded-lg border border-ink/15 px-4 py-2.5 text-sm outline-none transition-colors focus:border-primary-green"
-                />
-                <input
-                  type="email"
-                  placeholder="E-posta"
-                  value={form.email}
-                  onChange={(e) => setForm((f) => ({ ...f, email: e.target.value }))}
-                  className="w-full rounded-lg border border-ink/15 px-4 py-2.5 text-sm outline-none transition-colors focus:border-primary-green"
-                />
-                <textarea
-                  required
-                  rows={5}
-                  placeholder="Mesajınız *"
-                  value={form.message}
-                  onChange={(e) => setForm((f) => ({ ...f, message: e.target.value }))}
-                  className="w-full resize-none rounded-lg border border-ink/15 px-4 py-2.5 text-sm outline-none transition-colors focus:border-primary-green"
-                />
-                <button
-                  type="submit"
-                  className="rounded-full bg-primary-red px-7 py-3 text-sm font-semibold text-white transition-colors duration-300 hover:bg-primary-green"
-                >
-                  Gönder
-                </button>
-              </form>
-            )}
+          <div className="space-y-4">
+            <h2 className="text-xl font-bold text-ink">Hemen ulaşın</h2>
+            <p className="text-sm text-ink/60">
+              Aşağıdaki yollardan birini seçin. Online talep için teklif
+              formunu kullanabilirsiniz.
+            </p>
+            <a
+              href={`tel:${COMPANY.phoneHref}`}
+              className="flex min-h-14 items-center gap-3 rounded-2xl border border-ink/10 px-5 py-3 text-ink transition-colors hover:border-primary-green"
+            >
+              <Phone size={20} className="shrink-0 text-primary-green" aria-hidden />
+              <span className="text-sm font-semibold">Ara: {COMPANY.phoneDisplay}</span>
+            </a>
+            <a
+              href={COMPANY.whatsappHref}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex min-h-14 items-center gap-3 rounded-2xl border border-ink/10 px-5 py-3 text-ink transition-colors hover:border-primary-green"
+            >
+              <MessageCircle size={20} className="shrink-0 text-primary-green" aria-hidden />
+              <span className="text-sm font-semibold">WhatsApp&apos;tan yazın</span>
+            </a>
+            <a
+              href={`mailto:${COMPANY.email}`}
+              className="flex min-h-14 items-center gap-3 rounded-2xl border border-ink/10 px-5 py-3 text-ink transition-colors hover:border-primary-green"
+            >
+              <Mail size={20} className="shrink-0 text-primary-green" aria-hidden />
+              <span className="min-w-0 break-words text-sm font-semibold">
+                E-posta: {COMPANY.email}
+              </span>
+            </a>
+            <Link
+              href="/teklif"
+              className="flex min-h-14 items-center justify-center gap-2 rounded-full bg-primary-red px-7 py-3 text-sm font-semibold text-white transition-colors duration-300 hover:bg-primary-green"
+            >
+              <ClipboardList size={18} aria-hidden />
+              Ücretsiz Keşif Talep Et
+            </Link>
           </div>
         </div>
       </div>

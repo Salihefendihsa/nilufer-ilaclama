@@ -18,9 +18,8 @@ export default function SubelerimizPage() {
             Hizmet Bölgelerimiz
           </h1>
           <p className="mt-3 text-ink/60">
-            Bursa&apos;nın tüm ilçelerinde konumlanan ekiplerimizle kesintisiz
-            hizmet veriyoruz. Tek merkezden, Bursa&apos;nın tüm ilçelerine
-            hızlı ve düzenli hizmet veriyoruz.
+            Nilüfer&apos;deki merkezimizden Bursa&apos;nın aşağıdaki ilçelerine
+            hizmet veriyoruz. Diğer ilçeler için bize ulaşın.
           </p>
         </div>
 

@@ -37,9 +37,9 @@ export const SERVICES: ServiceItem[] = [
     slug: "ilaclama-ve-dezenfeksiyon",
     title: "İlaçlama ve Dezenfeksiyon",
     description:
-      "Konut, işyeri ve endüstriyel tesislerde ruhsatlı ürünlerle haşere kontrolü ve genel dezenfeksiyon.",
+      "Konut, işyeri ve endüstriyel tesislerde haşere kontrolü ve genel dezenfeksiyon.",
     longDescription:
-      "Hamamböceği, fare, karınca, sivrisinek ve daha birçok haşereye karşı Sağlık Bakanlığı onaylı ürünler ve ekipmanlarla uygulama yapıyoruz. Uygulama sonrası EK-1 raporu ile tüm süreç kayıt altına alınır.",
+      "Hamamböceği, fare, karınca, sivrisinek ve daha birçok haşereye karşı uygun ürün ve ekipmanlarla uygulama yapıyoruz. Raporlama kapsamı ve koşulları keşif sonrası teklifte netleştirilir.",
     icon: "spray-can",
     subServices: [
       {
@@ -68,13 +68,13 @@ export const SERVICES: ServiceItem[] = [
       },
     ],
     whyUs: [
-      "Sağlık Bakanlığı ruhsatlı ekip ve onaylı biyosidal ürünler kullanıyoruz",
-      "Her uygulama sonrası yasal EK-1 raporu ile süreci belgeliyoruz",
+      "Ürün ve yöntem seçimini keşifte belirlenen ihtiyaca göre yapıyoruz",
+      "Raporlama kapsamını teklif aşamasında sizinle netleştiriyoruz",
       "Evcil hayvan ve çocuklar için güvenli, düşük kokulu ürün seçenekleri sunuyoruz",
-      "Uygulama sonrası garanti kapsamında ücretsiz takip sağlıyoruz",
+      "Uygulama sonrası takip ve tekrar uygulama koşullarını teklifte belirtiyoruz",
     ],
     corporateDescription:
-      "Fabrika, ofis ve site yönetimleri için toplu sözleşmeli, periyodik ilaçlama ve dezenfeksiyon programları hazırlıyoruz. Denetime hazır EK-1 raporlaması ve sabit bütçeli yıllık planlar sunuyoruz.",
+      "Fabrika, ofis ve site yönetimleri için toplu sözleşmeli, periyodik ilaçlama ve dezenfeksiyon programları hazırlıyoruz. Raporlama ve yıllık plan koşulları teklifte netleştirilir.",
     commercialDescription:
       "Restoran, mağaza ve küçük işletmeler için esnek randevulu, tek seferlik veya ihtiyaç bazlı ilaçlama hizmeti sunuyoruz. Hızlı müdahale ve uygun fiyatlı paketlerle işinizi aksatmadan çözüm sağlıyoruz.",
   },
@@ -84,7 +84,7 @@ export const SERVICES: ServiceItem[] = [
     description:
       "Depo, gemi, konteyner ve tahıl ürünlerinde gaz uygulamasıyla derinlemesine haşere imhası.",
     longDescription:
-      "Kapalı hacimlerde gaz halindeki ilaçlarla yapılan fümigasyon uygulaması, diğer yöntemlerle ulaşılamayan gizli alanlardaki haşereleri de etkisiz hale getirir. Uzman ve sertifikalı ekibimizle güvenli şekilde uygulanır.",
+      "Kapalı hacimlerde gaz halindeki ilaçlarla yapılan fümigasyon uygulaması, diğer yöntemlerle ulaşılamayan gizli alanlardaki haşereleri de etkisiz hale getirir. Uygulama, kapalı alan güvenliği gözetilerek planlanır.",
     icon: "wind",
     subServices: [
       {
@@ -113,13 +113,13 @@ export const SERVICES: ServiceItem[] = [
       },
     ],
     whyUs: [
-      "Sertifikalı fümigasyon uzmanlarımızla mevzuata tam uyumlu uygulama yapıyoruz",
-      "Gaz ölçüm cihazlarıyla güvenlik seviyesini sürekli kontrol ediyoruz",
-      "İhracat süreçlerine uygun uluslararası sertifikalı raporlama sunuyoruz",
+      "Fümigasyonu mevzuat gerekliliklerini dikkate alarak planlıyoruz",
+      "Uygulama sırasında ve sonrasında güvenlik kontrollerini planlıyoruz",
+      "İhracat süreçleri için gereken raporlama ihtiyacını keşifte konuşuyoruz",
       "Ürün ve malzeme bütünlüğünü koruyan uygulama protokolleri kullanıyoruz",
     ],
     corporateDescription:
-      "Lojistik firmaları, ihracatçılar ve kurumsal depo işletmeleri için gümrük/karantina şartlarına uygun, sertifikalı fümigasyon programları yürütüyoruz.",
+      "Lojistik firmaları, ihracatçılar ve kurumsal depo işletmeleri için gümrük/karantina şartlarını dikkate alan fümigasyon programları planlıyoruz.",
     commercialDescription:
       "Küçük ölçekli depo ve konteyner sahipleri için ihtiyaç anında planlanabilen, tek seferlik fümigasyon hizmeti sunuyoruz.",
   },
@@ -174,20 +174,20 @@ export const SERVICES: ServiceItem[] = [
     description:
       "İşletmeniz için haşere risk analizi, periyodik kontrol planı ve mevzuata uyum danışmanlığı.",
     longDescription:
-      "Gıda, sağlık ve otelcilik sektöründeki işletmelere yönelik haşere risk analizi, HACCP uyumlu kontrol noktaları ve periyodik denetim planları hazırlıyoruz.",
+      "Gıda, sağlık ve otelcilik sektöründeki işletmelere yönelik haşere risk analizi, HACCP gerekliliklerini dikkate alan kontrol noktaları ve periyodik denetim planları hazırlıyoruz.",
     icon: "clipboard-list",
     subServices: [
       {
         title: "Zararlı Analiz Raporu",
         icon: "file-search",
         description:
-          "Tesisinizdeki haşere risk noktalarını tespit eden detaylı analiz raporu hazırlıyoruz. Rapor denetimlerde ibraz edilebilir niteliktedir.",
+          "Tesisinizdeki haşere risk noktalarını tespit eden detaylı analiz raporu hazırlıyoruz. Raporun kapsamı ihtiyaca göre belirlenir.",
       },
       {
         title: "Süreç Denetimi",
         icon: "clipboard-check",
         description:
-          "Mevcut haşere kontrol süreçlerinizi HACCP standartlarına göre denetliyor, iyileştirme önerileri sunuyoruz.",
+          "Mevcut haşere kontrol süreçlerinizi gözden geçiriyor, iyileştirme önerileri sunuyoruz.",
       },
       {
         title: "Personel Eğitimi",
@@ -199,17 +199,17 @@ export const SERVICES: ServiceItem[] = [
         title: "Yasal Uyumluluk",
         icon: "scale",
         description:
-          "İşletmenizin haşere kontrolü mevzuatına tam uyumunu sağlayacak belgelendirme ve süreç desteği sunuyoruz.",
+          "İşletmenizin haşere kontrolü mevzuat gerekliliklerine yönelik belgelendirme ve süreç desteği sunuyoruz.",
       },
     ],
     whyUs: [
-      "Gıda, sağlık ve otelcilik sektöründe uzmanlaşmış danışman kadromuzla çalışıyoruz",
-      "HACCP uyumlu, denetime hazır raporlama sistemi sunuyoruz",
-      "Periyodik denetim planlarıyla sürekli uyumluluk sağlıyoruz",
+      "Gıda, sağlık ve otelcilik gibi hassas sektörler için danışmanlık planlıyoruz",
+      "Denetim ihtiyacına göre raporlama düzeni kuruyoruz",
+      "Periyodik denetim planı hazırlıyoruz",
       "İşletmenize özel risk profiline göre uygulama planı hazırlıyoruz",
     ],
     corporateDescription:
-      "Zincir mağaza, otel ve fabrikalar için HACCP uyumlu risk analizi, düzenli denetim ve personel eğitim programları hazırlıyoruz.",
+      "Zincir mağaza, otel ve fabrikalar için risk analizi, düzenli denetim ve personel eğitim programları hazırlıyoruz.",
     commercialDescription:
       "Tek şubeli restoran ve küçük işletmeler için ihtiyaç odaklı, uygun maliyetli danışmanlık ve rapor hizmeti sunuyoruz.",
   },

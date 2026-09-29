@@ -1,7 +1,5 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import { MapPin, ShieldCheck, Target } from "lucide-react";
-import { DANISMANLIK_IMAGE } from "@/lib/data/service-images";
 
 export const metadata: Metadata = {
   title: "Kurumsal | Nilüfer İlaçlama",
@@ -38,16 +36,6 @@ export default function KurumsalPage() {
         <div className="text-center">
           <h1 className="text-3xl font-extrabold text-ink sm:text-4xl">Kurumsal</h1>
           <p className="mt-3 text-ink/60">Hakkımızda</p>
-        </div>
-
-        <div className="relative mt-10 h-64 w-full overflow-hidden rounded-3xl shadow-lg sm:h-80">
-          <Image
-            src={DANISMANLIK_IMAGE}
-            alt="Nilüfer İlaçlama ekibi kurumsal danışmanlık görüşmesinde"
-            fill
-            sizes="(min-width: 1024px) 896px, 100vw"
-            className="object-cover"
-          />
         </div>
 
         <div className="mt-10 space-y-5 text-base leading-relaxed text-ink/70">

@@ -45,12 +45,12 @@ export const PESTS: PestItem[] = [
       {
         step: "Kullanılan Ürün/Ekipman",
         description:
-          "Sağlık Bakanlığı onaylı, düşük kokulu jel yem ve sprey formülasyonlar, ULV sisleme cihazı ile desteklenir.",
+          "Düşük kokulu jel yem ve sprey formülasyonlar, ULV sisleme cihazı ile desteklenir.",
       },
       {
-        step: "Takip ve Garanti",
+        step: "Takip",
         description:
-          "Uygulama sonrası 2-3 hafta içinde kontrol ziyareti yapılır, garanti süresi boyunca tekrar sorun ücretsiz giderilir.",
+          "Uygulama sonrası 2-3 hafta içinde kontrol ziyareti yapılır, tekrar uygulama koşulları teklifte belirtilir.",
       },
     ],
   },
@@ -82,10 +82,10 @@ export const PESTS: PestItem[] = [
       {
         step: "Kullanılan Ürün/Ekipman",
         description:
-          "Kilitli yem istasyonları, mekanik tuzaklar ve gerekli durumlarda ruhsatlı rodentisit kullanılır.",
+          "Kilitli yem istasyonları, mekanik tuzaklar ve gerekli durumlarda rodentisit kullanılır.",
       },
       {
-        step: "Takip ve Garanti",
+        step: "Takip",
         description:
           "İstasyonlar periyodik olarak kontrol edilir, aktivite tamamen sona erene kadar takip sürdürülür.",
       },
@@ -122,9 +122,9 @@ export const PESTS: PestItem[] = [
           "Endüstriyel ısı jeneratörü ve kalıntı etkili, onaylı insektisit formülasyonları kullanılır.",
       },
       {
-        step: "Takip ve Garanti",
+        step: "Takip",
         description:
-          "10-14 gün sonra ikinci kontrol uygulaması yapılır, garanti kapsamında tam imha sağlanana kadar takip edilir.",
+          "10-14 gün sonra ikinci kontrol uygulaması yapılır, takip koşulları teklifte belirtilir.",
       },
     ],
   },
@@ -159,9 +159,9 @@ export const PESTS: PestItem[] = [
           "Düşük toksisiteli yem istasyonları ve gerektiğinde bariyer ilaçlama uygulanır.",
       },
       {
-        step: "Takip ve Garanti",
+        step: "Takip",
         description:
-          "Uygulama sonrası aktivite azalması izlenir, gerekirse tekrar uygulama garanti kapsamında yapılır.",
+          "Uygulama sonrası aktivite azalması izlenir, gerekirse tekrar uygulama planlanır.",
       },
     ],
   },
@@ -196,7 +196,7 @@ export const PESTS: PestItem[] = [
           "ULV sisleme cihazları ve çevreye duyarlı larvasit formülasyonlar kullanılır.",
       },
       {
-        step: "Takip ve Garanti",
+        step: "Takip",
         description:
           "Mevsimsel periyotlarla tekrar uygulama planlanır, yoğun dönemlerde takip sıklaştırılır.",
       },
@@ -233,7 +233,7 @@ export const PESTS: PestItem[] = [
           "Elektrikli UV sinek tuzakları ve kalıntı etkili, gıda alanlarına uygun onaylı ürünler kullanılır.",
       },
       {
-        step: "Takip ve Garanti",
+        step: "Takip",
         description:
           "Özellikle gıda işletmelerinde periyodik kontrol programına dahil edilerek sürekli izlenir.",
       },
@@ -270,9 +270,9 @@ export const PESTS: PestItem[] = [
           "Feromon bazlı yapışkan tuzaklar ve tekstil dostu, kalıntı etkili formülasyonlar kullanılır.",
       },
       {
-        step: "Takip ve Garanti",
+        step: "Takip",
         description:
-          "Tuzak sonuçlarına göre aylık takip yapılır, yeniden bulaşma durumunda garanti kapsamında müdahale edilir.",
+          "Tuzak sonuçlarına göre aylık takip yapılır, yeniden bulaşma durumunda müdahale koşulları teklifte belirtilir.",
       },
     ],
   },
@@ -307,9 +307,9 @@ export const PESTS: PestItem[] = [
           "Evcil hayvan dostu, kalıntı etkili insektisit ve büyüme düzenleyici formülasyonlar kullanılır.",
       },
       {
-        step: "Takip ve Garanti",
+        step: "Takip",
         description:
-          "2-3 hafta sonra kontrol uygulaması yapılır, yaşam döngüsü tamamen kırılana kadar garanti kapsamında takip edilir.",
+          "2-3 hafta sonra kontrol uygulaması yapılır, yaşam döngüsü boyunca takip planlanır.",
       },
     ],
   },
