@@ -13,42 +13,42 @@ const FAQS: Faq[] = [
   {
     question: "İlaçlama sonrası eve ne zaman girebilirim?",
     answer:
-      "Uygulanan ürüne ve alanın havalandırmasına bağlı olarak genellikle 2-4 saat sonra, alan iyice havalandırıldıktan sonra eve girebilirsiniz. Ekibimiz uygulama sonunda size net bir süre bildirir.",
+      "Bekleme süresi kullanılan ürüne, alana ve havalandırmaya göre değişir; genel bilgi olarak birkaç saat civarında olabilir. Sizin evinizde geçerli süre, ürün etiketi ve uygulamayı yapan ekibin bildirimiyle netleşir; uygulama öncesinde sormanızı öneririz.",
   },
   {
     question: "Evcil hayvanlarım için güvenli mi?",
     answer:
-      "Kullandığımız tüm ürünler Sağlık Bakanlığı onaylı biyosidal ürünlerdir. Uygulama sırasında evcil hayvanların ortamdan uzaklaştırılmasını, kuruma süresi tamamlanana kadar temas ettirilmemesini öneririz.",
+      "Güvenlik; kullanılan ürüne, uygulama yöntemine ve hayvanın türüne göre değişir, bu yüzden kesin bir güvence veremeyiz. Genel öneri, uygulama sırasında evcil hayvanları ortamdan uzaklaştırmak ve kuruma süresi bitene kadar temas ettirmemektir. Evinizde evcil hayvan varsa talebinizde belirtin; ürün, ruhsat/onay bilgisi ve önlemler keşifte ve teklifte netleştirilir.",
   },
   {
     question: "Uygulama öncesi nasıl hazırlık yapmalıyım?",
     answer:
-      "Mutfak tezgahlarının temizlenmesi, açık gıda ürünlerinin kapatılması, dolap ve çekmecelerin biraz aralık bırakılması uygulamanın etkinliğini artırır. Randevu onayında ekibimiz size detaylı bir hazırlık listesi iletir.",
+      "Mutfak tezgahlarının temizlenmesi, açık gıda ürünlerinin kapatılması, dolap ve çekmecelerin biraz aralık bırakılması uygulamanın etkinliğini artırır. Alana özel hazırlık adımları keşifte netleştirilir.",
   },
   {
     question: "İlaçlamanın etkisi ne kadar sürer?",
     answer:
-      "Kullanılan yönteme göre değişmekle birlikte kalıntılı ilaçlama uygulamaları genellikle 3-6 ay etkisini korur. Yoğun istila durumlarında periyodik kontrol programı önerilir.",
+      "Etki süresi yönteme, ürüne, alana ve istila durumuna göre değişir; sabit bir süre söylemek doğru olmaz. Yoğun istilalarda periyodik kontrol gerekebilir. Beklenen süre ve takip planı keşifte ve teklifte netleştirilir.",
   },
   {
     question: "Kaç uygulama sonrası sonuç alırım?",
     answer:
-      "Hafif düzeydeki haşere sorunlarında tek uygulama yeterli olabilirken, yoğun istilalarda 2-3 uygulamalık bir takip programı önerilir. Uzmanlarımız keşif sırasında size özel bir plan sunar.",
+      "Uygulama sayısı haşere türüne ve istila yoğunluğuna göre değişir; hafif sorunlarda tek uygulama yeterli olabilirken yoğun istilalarda birden fazla uygulama gerekebilir. Kapsam ve uygulama sayısı keşifte belirlenip teklifte yazılı olarak netleştirilir.",
   },
   {
     question: "Gebe veya bebekli evlerde ilaçlama yapılabilir mi?",
     answer:
-      "Evet, ancak uygulama sonrası havalandırma ve eve giriş sürelerine daha dikkat edilmesini öneririz. Talep etmeniz halinde ekibimiz özellikle hassas gruplar için daha uzun bekleme süresi planlar.",
+      "Gebe, bebek veya sağlık sorunu olan kişiler için özellikle dikkatli olunmalıdır. Uygulama öncesinde durumu bize bildirin; ürün seçimi, bekleme ve havalandırma süresi keşifte netleştirilir. Emin olamadığınız durumlarda doktorunuza danışmanızı öneririz.",
   },
   {
     question: "Uygulama sonrası koku kalır mı?",
     answer:
-      "Kullandığımız modern ürünlerin çoğu düşük kokuludur ve havalandırma sonrası koku büyük ölçüde dağılır. Hassasiyeti olan müşterilerimiz için kokusuz alternatif ürün seçenekleri de sunuyoruz.",
+      "Koku, kullanılan ürüne ve ortama göre değişir. Kokuya hassasiyetiniz varsa talebinizde belirtin; uygun ürün seçenekleri keşifte değerlendirilir.",
   },
   {
     question: "Fiyatlandırma nasıl belirleniyor?",
     answer:
-      "Fiyat; alanın metrekaresi, haşere yoğunluğu ve uygulanacak yönteme göre belirlenir. İlk keşif tamamen ücretsizdir ve size özel şeffaf bir teklif sunulur.",
+      "Fiyat; alanın metrekaresi, haşere yoğunluğu ve uygulanacak yönteme göre belirlenir. Hizmet kapsamı ve fiyat, keşif sonrası hazırlanan teklifte netleştirilir.",
   },
   {
     question: "Uygulama sonrası takip nasıl yapılıyor?",

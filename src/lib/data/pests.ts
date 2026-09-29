@@ -24,7 +24,7 @@ export const PESTS: PestItem[] = [
     icon: "bug",
     description: "Nemli ve sıcak ortamları sever, mutfak ve banyolarda sıkça görülür.",
     details:
-      "Hamamböcekleri gece aktif olan, hızla üreyen ve hastalık taşıyan haşerelerdendir. Nemli, sıcak ve gıda kalıntısı bulunan alanlarda kolayca kolonileşirler. Etkili kontrol için jel yem, kalıntı ilaçlama ve düzenli takip gerekir.",
+      "Hamamböcekleri gece aktif olan, hızla üreyen ve hastalık taşıyan haşerelerdendir. Nemli, sıcak ve gıda kalıntısı bulunan alanlarda kolayca kolonileşirler. Kontrol için jel yem, kalıntı ilaçlama ve düzenli takip gerekebilir.",
     harms: [
       "Alerji ve astım tetikleyicisi salgı ve döküntüler bırakır",
       "Gıda ve yüzeylerde bakteri kontaminasyonu riski oluşturur",
@@ -87,7 +87,7 @@ export const PESTS: PestItem[] = [
       {
         step: "Takip",
         description:
-          "İstasyonlar periyodik olarak kontrol edilir, aktivite tamamen sona erene kadar takip sürdürülür.",
+          "İstasyonlar periyodik olarak kontrol edilir, aktivite izlenir; takip planı teklifte belirtilir.",
       },
     ],
   },

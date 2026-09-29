@@ -54,6 +54,11 @@ export default function BlogPostPage({ params }: PageProps) {
           ))}
         </div>
 
+        <p className="mt-10 text-xs leading-relaxed text-ink/50">
+          Bu yazı genel bilgilendirme amaçlıdır; uzman görüşü veya güvenlik
+          garantisi yerine geçmez. Hizmet kapsamı keşif ve teklifte netleştirilir.
+        </p>
+
         <div className="mt-14 rounded-2xl border border-primary-green/30 bg-primary-green/5 p-6">
           <p className="text-sm font-semibold text-ink">
             Bu konuda yardıma mı ihtiyacınız var?

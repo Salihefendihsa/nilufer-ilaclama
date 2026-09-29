@@ -83,8 +83,12 @@ export default function PestDetailPage({ params }: PageProps) {
         <div className="mt-14">
           <h2 className="flex items-center gap-2 text-xl font-bold text-ink">
             <ShieldCheck size={20} className="text-primary-green" />
-            Çözüm Sürecimiz
+            Genel Uygulama Süreci
           </h2>
+          <p className="mt-2 text-sm text-ink/60">
+            Adımlar genel bir çerçevedir; yöntem, ürün ve kapsam keşifte belirlenir
+            ve teklifte netleştirilir.
+          </p>
           <div className="mt-5 space-y-4">
             {pest.ourProcess.map((process, i) => (
               <div key={process.step} className="flex gap-4 rounded-xl border border-ink/10 p-4">
@@ -107,7 +111,7 @@ export default function PestDetailPage({ params }: PageProps) {
             Bu Sorunla mı Karşılaştınız?
           </p>
           <p className="mt-1 text-sm text-ink/60">
-            Uzman ekibimiz ücretsiz keşif ile durumu yerinde değerlendirsin.
+            Keşif talebinizi iletin; yöntem, kapsam ve süreç keşif sonrası teklifte netleştirilir.
           </p>
           <Link
             href="/teklif"
