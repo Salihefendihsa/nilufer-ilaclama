@@ -1,21 +1,21 @@
 import type { Metadata } from "next";
 import Image from "next/image";
-import { Award, ShieldCheck, Target } from "lucide-react";
+import { MapPin, ShieldCheck, Target } from "lucide-react";
 import { DANISMANLIK_IMAGE } from "@/lib/data/service-images";
 
 export const metadata: Metadata = {
   title: "Kurumsal | Nilüfer İlaçlama",
   description:
-    "Nilüfer İlaçlama'nın hikayesi, misyonu ve ruhsat/sertifika standartları hakkında bilgi alın.",
+    "Nilüfer İlaçlama'nın hikayesi, misyonu ve hizmet yaklaşımı hakkında bilgi alın.",
   alternates: { canonical: "/kurumsal" },
 };
 
 const VALUES = [
   {
-    icon: Award,
-    title: "10+ Yıllık Tecrübe",
+    icon: MapPin,
+    title: "Hizmet Bölgesi",
     description:
-      "Bursa'da 10 yılı aşkın süredir konut, işyeri ve endüstriyel tesislerde haşere kontrol hizmeti veriyoruz.",
+      "Bursa'da konut, işyeri ve endüstriyel tesislere yönelik ilaçlama ve haşere kontrol hizmeti veriyoruz.",
   },
   {
     icon: Target,
@@ -25,9 +25,9 @@ const VALUES = [
   },
   {
     icon: ShieldCheck,
-    title: "Ruhsat ve Sertifika",
+    title: "Şeffaf Süreç",
     description:
-      "Sağlık Bakanlığı ruhsatlı ekibimiz, onaylı biyosidal ürünlerle mevzuata tam uyumlu şekilde çalışır.",
+      "Keşif sonrası kapsam, uygulama yöntemi ve raporlama koşulları teklifte açıkça belirtilir.",
   },
 ];
 
@@ -52,25 +52,19 @@ export default function KurumsalPage() {
 
         <div className="mt-10 space-y-5 text-base leading-relaxed text-ink/70">
           <p>
-            Nilüfer İlaçlama, 10 yılı aşkın süredir Bursa genelinde konut,
-            işyeri ve endüstriyel tesislere yönelik profesyonel haşere
-            kontrol hizmetleri sunmaktadır. Kurulduğumuz günden bu yana
-            temel önceliğimiz; insan sağlığına ve çevreye zarar vermeyen,
-            kalıcı ve güvenilir çözümler üretmek olmuştur.
+            Nilüfer İlaçlama, Bursa&apos;da konut, işyeri ve endüstriyel
+            tesislere yönelik ilaçlama ve haşere kontrol hizmetleri
+            sunmaktadır. Temel önceliğimiz; insan sağlığına ve çevreye
+            özen gösteren, kalıcı ve güvenilir çözümler üretmektir.
           </p>
           <p>
-            Ruhsatlı ve sertifikalı ekibimiz, Sağlık Bakanlığı onaylı
-            biyosidal ürünlerle çalışır; her uygulama sonrası EK-1 raporu
-            ile süreci kayıt altına alarak müşterilerimize tam şeffaflık
-            sağlar. Sigortalı hizmet anlayışımız ve KVKK uyumlu veri
-            süreçlerimizle, hem bireysel hem de kurumsal müşterilerimizin
-            güvenini kazanmayı sürdürüyoruz.
+            Uygulama öncesinde mekânı inceler, kapsamı ve yöntemi sizinle
+            paylaşırız. Ruhsat, sertifika ve raporlama bilgilerini talep
+            ettiğinizde bizden öğrenebilirsiniz.
           </p>
           <p>
-            Bugün Bursa&apos;nın Nilüfer, Osmangazi, Yıldırım, Mudanya,
-            Gemlik ve Karacabey ilçelerinde aktif ekiplerimizle hizmet
-            veriyor; her geçen gün büyüyen müşteri portföyümüze memnuniyet
-            odaklı, kalıcı çözümler sunmaya devam ediyoruz.
+            Bursa&apos;nın Nilüfer, Osmangazi, Yıldırım, Mudanya, Gemlik ve
+            Karacabey ilçelerinde hizmet veriyoruz.
           </p>
         </div>
 

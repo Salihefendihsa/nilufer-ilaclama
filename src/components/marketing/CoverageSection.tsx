@@ -10,9 +10,9 @@ type StatCard = {
 };
 
 const STAT_CARDS: StatCard[] = [
-  { value: "180+", label: "Aktif İş" },
-  { value: "%98", label: "Zamanında Varış" },
-  { value: "35 dk", label: "Ortalama Yanıt Süresi" },
+  { value: "Bursa", label: "Hizmet Bölgesi" },
+  { value: String(DISTRICTS.length), label: "Haritada Gösterilen İlçe" },
+  { value: "Nilüfer", label: "Merkez Ofis" },
 ];
 
 /**
@@ -28,7 +28,7 @@ export default function CoverageSection() {
   const hoveredDistrict = DISTRICTS.find((d) => d.name === hovered);
 
   return (
-    <section className="bg-ink py-24">
+    <section className="bg-ink py-16 sm:py-24">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 24 }}
@@ -41,8 +41,8 @@ export default function CoverageSection() {
             Bursa Genelinde Kesintisiz Hizmet.
           </h2>
           <p className="mt-4 text-base text-white/60 sm:text-lg">
-            Ekiplerimiz Bursa&apos;nın tüm ilçelerinde konumlanır, talebiniz
-            anında en yakın ekibe yönlendirilir.
+            Nilüfer, Osmangazi, Yıldırım, Mudanya, Gemlik ve Karacabey&apos;de
+            hizmet veriyoruz. Diğer ilçeler için talebinizde belirtin.
           </p>
         </motion.div>
 

@@ -46,20 +46,20 @@ const STEPS: Step[] = [
   {
     number: "05",
     title: "Uygulama",
-    description: "Ruhsatlı ekibimiz onaylı ürünlerle güvenli uygulamayı gerçekleştirir.",
+    description: "Ekibimiz, keşifte belirlenen plana göre uygulamayı gerçekleştirir.",
     icon: SprayCan,
   },
   {
     number: "06",
-    title: "Rapor ve Garanti",
-    description: "EK-1 raporu teslim edilir, hizmetiniz garanti kapsamına alınır.",
+    title: "Rapor ve Takip",
+    description: "Uygulama sonrası bilgilendirme yapılır; raporlama ve takip koşulları teklifte netleştirilir.",
     icon: UserCheck,
   },
 ];
 
 export default function HowItWorks() {
   return (
-    <section className="bg-white py-24">
+    <section id="nasil-calisir" className="scroll-mt-20 bg-white py-24">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 24 }}
@@ -72,8 +72,8 @@ export default function HowItWorks() {
             Hizmet Almak Hiç Bu Kadar Kolay Olmamıştı
           </h2>
           <p className="mt-4 text-base text-ink/60 sm:text-lg">
-            Talebinizden garanti raporuna kadar tüm süreç altı basit adımda
-            tamamlanır.
+            Talebinizden uygulama sonrası takibe kadar süreç altı adımda
+            ilerler.
           </p>
         </motion.div>
 

@@ -4,6 +4,8 @@ import { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { AnimatePresence, motion } from "framer-motion";
+import { Phone } from "lucide-react";
+import { COMPANY } from "@/lib/data/company";
 
 const NAV_LINKS = [
   { label: "Anasayfa", href: "/" },
@@ -66,12 +68,20 @@ export default function Header() {
           </Link>
         </div>
 
+        <div className="flex items-center gap-1 xl:hidden">
+        <a
+          href={`tel:${COMPANY.phoneHref}`}
+          aria-label={`Ara: ${COMPANY.phoneDisplay}`}
+          className="flex h-11 w-11 items-center justify-center rounded-full bg-primary-green text-white"
+        >
+          <Phone size={20} aria-hidden />
+        </a>
         <button
           type="button"
           aria-label="Menüyü aç/kapat"
           aria-expanded={menuOpen}
           onClick={() => setMenuOpen((v) => !v)}
-          className="flex flex-col items-center justify-center gap-1.5 p-2 xl:hidden"
+          className="flex h-11 w-11 flex-col items-center justify-center gap-1.5"
         >
           <motion.span
             animate={menuOpen ? { rotate: 45, y: 7 } : { rotate: 0, y: 0 }}
@@ -86,6 +96,7 @@ export default function Header() {
             className="h-0.5 w-6 rounded-full bg-ink"
           />
         </button>
+        </div>
       </div>
 
       <AnimatePresence>
@@ -112,7 +123,7 @@ export default function Header() {
               <Link
                 href="/teklif"
                 onClick={() => setMenuOpen(false)}
-                className="mt-2 rounded-full bg-primary-red px-5 py-2.5 text-center text-sm font-semibold text-white transition-colors duration-300 hover:bg-primary-green"
+                className="mt-2 rounded-full bg-primary-red px-5 py-3 text-center text-sm font-semibold text-white transition-colors duration-300 hover:bg-primary-green"
               >
                 Ücretsiz Keşif
               </Link>

@@ -1,8 +1,5 @@
-"use client";
-
-import { useState } from "react";
 import Link from "next/link";
-import { Mail, MapPin, MessageCircle, Phone, ShieldCheck, Star } from "lucide-react";
+import { Mail, MapPin, MessageCircle, Phone, ShieldCheck } from "lucide-react";
 import { COMPANY } from "@/lib/data/company";
 import { SERVICES } from "@/lib/data/services";
 
@@ -36,50 +33,9 @@ function FacebookIcon(props: React.SVGProps<SVGSVGElement>) {
   );
 }
 
-function NewsletterForm() {
-  const [email, setEmail] = useState("");
-  const [submitted, setSubmitted] = useState(false);
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    console.log("Bültene kayıt:", email);
-    setSubmitted(true);
-    setEmail("");
-  };
-
-  return (
-    <form
-      onSubmit={handleSubmit}
-      className="flex w-full max-w-md flex-col gap-3 sm:flex-row"
-    >
-      <input
-        type="email"
-        required
-        placeholder="E-posta adresiniz"
-        value={email}
-        onChange={(e) => setEmail(e.target.value)}
-        className="w-full rounded-full border border-white/15 bg-white/5 px-4 py-2.5 text-sm text-white placeholder:text-white/40 outline-none transition-colors focus:border-primary-green"
-      />
-      <button
-        type="submit"
-        className="shrink-0 rounded-full bg-primary-red px-6 py-2.5 text-sm font-semibold text-white transition-colors duration-300 hover:bg-primary-green"
-      >
-        {submitted ? "Kaydedildi ✓" : "Kaydol"}
-      </button>
-    </form>
-  );
-}
-
 export default function Footer() {
   return (
     <footer className="bg-ink text-white">
-      <div className="border-b border-white/10 py-3">
-        <p className="flex items-center justify-center gap-2 text-center text-xs font-medium text-white/60">
-          <Star size={13} className="fill-primary-green text-primary-green" />
-          500+ müşteri ile güveniliyor
-        </p>
-      </div>
-
       <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-4">
           <div>
@@ -93,8 +49,8 @@ export default function Footer() {
               </p>
             </div>
             <p className="mt-4 text-sm leading-relaxed text-white/60">
-              Ruhsatlı ekip ve onaylı ürünlerle konut, işyeri ve endüstriyel
-              tesislerde güvenli, kalıcı haşere kontrol çözümleri sunuyoruz.
+              Bursa&apos;da konut, işyeri ve endüstriyel tesisler için ilaçlama,
+              dezenfeksiyon ve haşere kontrol hizmetleri sunuyoruz.
             </p>
             <div className="mt-5 flex items-center gap-3">
               <a
@@ -203,12 +159,17 @@ export default function Footer() {
 
         <div className="mt-12 flex flex-col items-start gap-4 border-t border-white/10 pt-10 sm:flex-row sm:items-center sm:justify-between">
           <div>
-            <h3 className="text-sm font-semibold text-white">Bülten&apos;e Kaydol</h3>
+            <h3 className="text-sm font-semibold text-white">Ücretsiz keşif talep edin</h3>
             <p className="mt-1 text-xs text-white/50">
-              Kampanya ve haşere kontrol ipuçlarından haberdar olun.
+              Talebinizi iletin, ekibimiz sizi arasın.
             </p>
           </div>
-          <NewsletterForm />
+          <Link
+            href="/teklif"
+            className="inline-flex min-h-11 items-center justify-center rounded-full bg-primary-red px-6 py-2.5 text-sm font-semibold text-white transition-colors duration-300 hover:bg-primary-green"
+          >
+            Teklif Al
+          </Link>
         </div>
 
         <div className="mt-10 border-t border-white/10 pt-6 text-center text-xs text-white/40">

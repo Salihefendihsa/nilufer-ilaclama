@@ -18,7 +18,7 @@ export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: "Nilüfer İlaçlama | Bursa'da Profesyonel İlaçlama ve Dezenfeksiyon Hizmetleri",
   description:
-    "Bursa genelinde konut, işyeri ve endüstriyel tesisler için ruhsatlı, güvenli ilaçlama, dezenfeksiyon ve fümigasyon hizmetleri.",
+    "Bursa genelinde konut, işyeri ve endüstriyel tesisler için güvenli ilaçlama, dezenfeksiyon ve fümigasyon hizmetleri.",
   openGraph: {
     siteName: COMPANY.name,
     locale: "tr_TR",
@@ -36,7 +36,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="tr">
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >

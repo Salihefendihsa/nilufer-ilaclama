@@ -21,7 +21,7 @@ export default function Services() {
             Hizmetlerimiz
           </h2>
           <p className="mt-4 text-base text-ink/60 sm:text-lg">
-            İhtiyacınıza uygun, ruhsatlı ve kalıcı çözümler sunan hizmet
+            İhtiyacınıza uygun ilaçlama ve dezenfeksiyon hizmet
             kategorilerimiz.
           </p>
         </div>
