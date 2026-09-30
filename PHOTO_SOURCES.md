@@ -1,11 +1,10 @@
-# Fotoğraf kaynakları
+# Görsel kökenleri
 
 ## Ana sayfa hero
 
-- Yerel varlıklar: `public/images/hero-garden-desktop.webp`, `public/images/hero-garden-mobile.webp`
-- Fotoğraf: *Woman in Hat and Mask Spraying a Tree in a Garden with Pesticides*
-- Fotoğrafçı: Gustavo Fring
-- Kaynak sayfası: https://www.pexels.com/photo/woman-in-hat-and-mask-spraying-a-tree-in-a-garden-with-pesticides-4894608/
-- Lisans: Pexels License — https://www.pexels.com/license/ (web sitesi ve tanıtım amaçlı kullanıma izin veriyor)
-- Erişim ve lisans kontrol tarihi: 30 Eylül 2026
-- İşlem: Kaynak fotoğraf yeniden boyutlandırılıp WebP'ye dönüştürüldü; mobil sürümde kişi görünür kalacak şekilde kırpıldı. Fotoğraftaki kişi Nilüfer İlaçlama çalışanı olarak sunulmuyor. Görsel sitede "Temsili stok fotoğraf" olarak etiketlendi.
+- Köken: Kullanıcının sağladığı, yapay zekâ ile üretilmiş görsel (`ChatGPT Görseli 30 Eyl 2026 15_48_01.png`). Gerçek bir uygulamanın fotoğrafı veya stok fotoğraf değildir.
+- Orijinal dosya kullanıcı bilgisayarında, proje klasörünün dışında korunur; repoya eklenmedi.
+- Yerel türevler: `public/images/hero-ai-desktop.webp` (1600 × 901) ve `public/images/hero-ai-mobile.webp` (650 × 933).
+- İşlem: Orijinalin kenarlarından ince pay kırpıldı; masaüstü sürümü küçültülüp WebP olarak sıkıştırıldı. Mobil sürüm, yüz, eller ve ekipman kadrajda kalacak şekilde ayrı kırpıldı ve WebP olarak sıkıştırıldı. Kaynakta düz siyah bir kenarlık saptanmadı.
+- Sitedeki açıklama: “Yapay zekâ ile oluşturulmuş temsili görsel”. Görseldeki kişi Nilüfer İlaçlama çalışanı olarak tanıtılmaz.
+- Sağlanma ve işleme tarihi: 30 Eylül 2026.
