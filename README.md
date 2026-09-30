@@ -1,5 +1,10 @@
 # Nilüfer İlaçlama
 
+Bu proje tanıtım sitesi ve herkese açık `/teklif` başvuru formudur. Form,
+`quote_requests` tablosuna anonim talep kaydı ekler; kullanıcı hesabı açmaz.
+Giriş, şifre ve yönetim paneli sayfaları ürün kapsamında değildir. Eski
+veritabanı tabloları ve kayıtları bu kapsam değişikliğinde silinmez.
+
 ## Dockersız geliştirme
 
 Node.js ve npm kurulu olmalıdır. Uygulama için Docker veya yerel Supabase gerekmez.
@@ -47,7 +52,10 @@ veya `database.types.ts` dosyasını migration ile tutarlı biçimde güncelleyi
 | `payments` | Müşteriye bağlı ödeme/tahsilat kaydı |
 | `quote_requests` | Herkese açık "Ücretsiz Keşif" form kayıtları |
 
-### Rol bazlı erişim (RLS) özeti
+### Mevcut şemanın rol bazlı erişimi (RLS)
+
+Aşağıdaki tablolar ve politikalar eski panel şemasının parçası olarak korunur;
+tanıtım sitesi bu hesap ve yönetim akışlarını kullanmaz.
 
 - **owner**: tüm tablolarda tam okuma/yazma yetkisi
 - **staff**: yalnızca kendisine atanmış `jobs` ve `job_reports` kayıtlarını okur/yazar, kendi `staff` kaydını okur

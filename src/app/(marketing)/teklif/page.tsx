@@ -164,6 +164,9 @@ export default function TeklifPage() {
             Birkaç adımda talebinizi iletin, size en kısa sürede dönüş
             yapalım.
           </p>
+          <p className="mt-2 text-sm text-ink/50">
+            Bu form yalnızca başvuru içindir; kullanıcı hesabı oluşturmaz.
+          </p>
         </div>
 
         <div className="mt-10">
