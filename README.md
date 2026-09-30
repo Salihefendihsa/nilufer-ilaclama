@@ -1,47 +1,38 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Nilüfer İlaçlama
 
-## Getting Started
+## Dockersız geliştirme
 
-First, run the development server:
+Node.js ve npm kurulu olmalıdır. Uygulama için Docker veya yerel Supabase gerekmez.
+
+```bash
+npm ci
+```
+
+Proje kökündeki git tarafından izlenmeyen `.env.local` dosyasına **yalnızca geliştirme/test** Supabase projesinin Project URL ve publishable/anon anahtarını ekleyin:
+
+```dotenv
+NEXT_PUBLIC_SUPABASE_URL=https://<gelistirme-projesi>.supabase.co
+NEXT_PUBLIC_SUPABASE_ANON_KEY=<gelistirme-projesinin-publishable-veya-anon-anahtari>
+```
+
+Bu iki değer Supabase proje panelindeki API ayarlarından alınır. `service_role`/secret anahtarını `NEXT_PUBLIC_` değişkenine koymayın: bu değişkenler tarayıcıya gönderilir. `.env.local` dosyasını Git'e eklemeyin. Değerleri değiştirdikten sonra geliştirme sunucusunu yeniden başlatın.
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Siteyi [http://localhost:3000](http://localhost:3000) adresinde açın. Supabase değerleri boşsa genel site açılır; `/teklif` gönderimi başarı göstermeden telefon/WhatsApp yönlendirmesi içeren hata verir. Uzak projeye bağlanmak için `127.0.0.1:54321` kullanmayın: bu adres yalnızca Docker ile çalışan yerel Supabase API'sine aittir.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Uzak veritabanına migration uygulamadan önce hedef proje adını/ref'ini ve URL'sini panelde kontrol ederek bunun üretim değil geliştirme/test projesi olduğunu doğrulayın. `supabase/.temp/linked-project.json` dosyasında bağlı proje bulunması tek başına bu doğrulama için yeterli değildir. `supabase/migrations/001_init.sql` uygulandığında `pgcrypto` uzantısı; profil, müşteri, personel, iş, iş raporu, sözleşme, ödeme ve teklif talebi tabloları; indeksler, rol yardımcı fonksiyonları ve RLS politikaları oluşturulur. Hedefte mevcut şemayı ve olası çakışmaları incelemeden migration çalıştırmayın. Anonim `/teklif` gönderimi için `quote_requests` tablosu ile `public_insert_quote_requests` politikası gerekir.
 
 ## Veritabanı Şeması (Supabase)
 
 Şema tanımı: `supabase/migrations/001_init.sql`
 Bu dosyayla birebir eşleşen TypeScript tipleri: `src/lib/supabase/database.types.ts`
 
-CLI bağlıysa tipleri şemadan yeniden üretmek için:
-
-```bash
-npm run db:types
-```
-
-CLI henüz bağlı değilse `database.types.ts` elle güncellenmeli ve migration'daki
-tablo/kolon isimleriyle birebir tutarlı kalmalıdır.
+`npm run db:types` betiği `--local` kullandığından Dockersız akışta çalıştırılmaz.
+Şema değişirse hedefi doğrulanmış geliştirme/test projesinden tipleri yeniden üretin
+veya `database.types.ts` dosyasını migration ile tutarlı biçimde güncelleyin.
 
 ### Tablolar
 
