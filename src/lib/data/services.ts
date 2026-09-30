@@ -174,7 +174,7 @@ export const SERVICES: ServiceItem[] = [
     description:
       "İşletmeniz için haşere risk analizi, periyodik kontrol planı ve mevzuata uyum danışmanlığı.",
     longDescription:
-      "Gıda, sağlık ve otelcilik sektöründeki işletmelere yönelik haşere risk analizi, HACCP gerekliliklerini dikkate alan kontrol noktaları ve periyodik denetim planları hazırlıyoruz.",
+      "Gıda, sağlık ve otelcilik sektörlerinde haşere riskleri ile kayıt ve kontrol ihtiyaçları işletmeye göre değişir. HACCP kapsamındaki gereklilikler ve sunulabilecek raporlama hizmeti keşifte değerlendirilir, teklifte netleştirilir.",
     icon: "clipboard-list",
     subServices: [
       {

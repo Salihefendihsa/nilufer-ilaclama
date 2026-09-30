@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { MessageCircle, Phone } from "lucide-react";
 import { COMPANY } from "@/lib/data/company";
@@ -19,10 +20,27 @@ const SERVICE_TAGS = ["Konut", "İşyeri", "Endüstriyel tesis"];
 export default function Hero() {
   return (
     <section className="relative z-0 flex min-h-[calc(100svh-64px)] w-full items-center overflow-hidden bg-ink">
-      <div
-        aria-hidden
-        className="absolute inset-0 z-0 bg-gradient-to-br from-ink via-ink to-primary-green/30"
-      />
+      <div className="absolute inset-0 z-0">
+        <Image
+          src="/images/hero-garden-mobile.webp"
+          alt="Bahçede bitki ilaçlayan kişi; temsili stok fotoğraf"
+          fill
+          priority
+          sizes="(max-width: 639px) 100vw, 1px"
+          className="object-cover object-[53%_center] sm:hidden"
+        />
+        <Image
+          src="/images/hero-garden-desktop.webp"
+          alt=""
+          aria-hidden
+          fill
+          priority
+          sizes="(min-width: 640px) 100vw, 1px"
+          className="hidden object-cover object-[63%_center] sm:block"
+        />
+        <div className="absolute inset-0 bg-ink/65 sm:bg-gradient-to-r sm:from-ink/95 sm:via-ink/80 sm:to-ink/25" />
+        <div className="absolute inset-0 bg-gradient-to-t from-ink/55 via-transparent to-ink/20" />
+      </div>
 
       <div className="relative z-10 mx-auto w-full max-w-7xl px-4 py-16 sm:px-6 sm:py-24 lg:px-8">
         <div className="max-w-3xl">
@@ -124,6 +142,9 @@ export default function Hero() {
           </motion.p>
         </div>
       </div>
+      <span className="absolute bottom-2 left-4 z-10 text-[10px] text-white/75 sm:bottom-4 sm:left-6 sm:text-xs">
+        Temsili stok fotoğraf
+      </span>
     </section>
   );
 }

@@ -20,8 +20,7 @@ export default function PricingSection() {
             Bakım Paketlerimiz
           </h2>
           <p className="mt-4 text-base text-white/60 sm:text-lg">
-            İhtiyacınıza uygun periyodik bakım paketiyle sürekli koruma
-            altında kalın.
+            Ziyaret sıklığı, hizmet kapsamı ve fiyat keşif sonrası teklifte netleşir.
           </p>
         </motion.div>
 
@@ -41,7 +40,7 @@ export default function PricingSection() {
             >
               {pkg.featured && (
                 <span className="absolute -top-3.5 left-1/2 -translate-x-1/2 rounded-full bg-primary-green px-4 py-1.5 text-xs font-bold uppercase tracking-wide text-white shadow-md">
-                  En Popüler
+                  İşletmeler için
                 </span>
               )}
 

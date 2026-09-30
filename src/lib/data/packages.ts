@@ -14,8 +14,8 @@ export const PACKAGES: PackageItem[] = [
     slug: "ev-paketi",
     name: "Ev Paketi",
     tagline: "Konutlar için temel koruma",
-    price: "₺450",
-    period: "/ay",
+    price: "Teklif Alın",
+    period: "",
     featured: false,
     features: [
       "Aylık 1 ziyaret",
@@ -31,8 +31,8 @@ export const PACKAGES: PackageItem[] = [
     slug: "isyeri-paketi",
     name: "İşyeri Paketi",
     tagline: "İşletmeler için kapsamlı çözüm",
-    price: "₺950",
-    period: "/ay",
+    price: "Teklif Alın",
+    period: "",
     featured: true,
     features: [
       "Aylık 2 ziyaret",

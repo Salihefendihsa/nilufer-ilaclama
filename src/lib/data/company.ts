@@ -12,8 +12,6 @@ export const COMPANY = {
   addressLine1: "Çamlıca Mah. Gizem Sk. No:5 C/N",
   addressLine2: "Nilüfer / Bursa",
   whatsappHref: "https://wa.me/905523031634",
-  instagramHref: "https://instagram.com",
-  facebookHref: "https://facebook.com",
 };
 
 // Google Maps embed URL — API anahtarı gerektirmez, adres COMPANY'den
