@@ -250,6 +250,8 @@ export default function TeklifPage() {
                 <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
                   <input
                     type="text"
+                    aria-label="Ad Soyad"
+                    autoComplete="name"
                     required
                     placeholder="Ad Soyad *"
                     value={form.fullName}
@@ -258,6 +260,8 @@ export default function TeklifPage() {
                   />
                   <input
                     type="tel"
+                    aria-label="Telefon"
+                    autoComplete="tel"
                     required
                     placeholder="Telefon *"
                     value={form.phone}
@@ -266,6 +270,8 @@ export default function TeklifPage() {
                   />
                   <input
                     type="email"
+                    aria-label="E-posta"
+                    autoComplete="email"
                     placeholder="E-posta"
                     value={form.email}
                     onChange={(e) => update({ email: e.target.value })}
@@ -273,6 +279,8 @@ export default function TeklifPage() {
                   />
                   <input
                     type="text"
+                    aria-label="İlçe"
+                    autoComplete="address-level2"
                     placeholder="İlçe"
                     value={form.district}
                     onChange={(e) => update({ district: e.target.value })}
@@ -280,6 +288,8 @@ export default function TeklifPage() {
                   />
                   <input
                     type="text"
+                    aria-label="Adres"
+                    autoComplete="street-address"
                     placeholder="Adres"
                     value={form.address}
                     onChange={(e) => update({ address: e.target.value })}
@@ -309,9 +319,9 @@ export default function TeklifPage() {
                     ["İlçe", form.district || "—"],
                     ["Adres", form.address || "—"],
                   ].map(([label, value]) => (
-                    <div key={label} className="flex justify-between px-4 py-3 text-sm">
+                    <div key={label} className="flex min-w-0 justify-between gap-3 px-4 py-3 text-sm">
                       <dt className="text-ink/50">{label}</dt>
-                      <dd className="max-w-[60%] text-right font-medium text-ink">
+                      <dd className="max-w-[60%] min-w-0 break-words text-right font-medium text-ink">
                         {value}
                       </dd>
                     </div>

@@ -10,7 +10,7 @@ export default function WhatsAppButton() {
       initial={{ opacity: 0, scale: 0.3, y: 40 }}
       animate={{ opacity: 1, scale: 1, y: 0 }}
       transition={{ type: "spring", stiffness: 260, damping: 12, delay: 0.6 }}
-      className="fixed bottom-4 right-8 sm:bottom-6 sm:right-8 z-50 flex h-14 w-14 items-center justify-center"
+      className="fixed bottom-6 right-8 z-50 hidden h-14 w-14 items-center justify-center lg:flex"
     >
       <motion.span
         aria-hidden

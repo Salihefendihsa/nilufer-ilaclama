@@ -1,7 +1,6 @@
 "use client";
 
 import Link from "next/link";
-import Image from "next/image";
 import { motion } from "framer-motion";
 import { MessageCircle, Phone } from "lucide-react";
 import { COMPANY } from "@/lib/data/company";
@@ -19,25 +18,20 @@ const SERVICE_TAGS = ["Konut", "İşyeri", "Endüstriyel tesis"];
 
 export default function Hero() {
   return (
-    <section className="relative z-0 flex min-h-[880px] w-full items-end overflow-hidden bg-ink sm:min-h-[calc(100svh-64px)] sm:items-center">
+    <section className="relative z-0 flex min-h-[calc(100svh-68px)] w-full items-end overflow-hidden bg-ink sm:min-h-[calc(100svh-64px)] sm:items-center">
       <div className="absolute inset-0 z-0">
-        <Image
-          src="/images/hero-ai-mobile.webp"
-          alt="Yapay zekâ ile oluşturulmuş, bina çevresinde uygulama yapan temsili kişi"
-          fill
-          priority
-          sizes="(max-width: 639px) 100vw, 1px"
-          className="object-cover object-[56%_center] sm:hidden"
-        />
-        <Image
-          src="/images/hero-ai-desktop.webp"
-          alt=""
-          aria-hidden
-          fill
-          priority
-          sizes="(min-width: 640px) 100vw, 1px"
-          className="hidden object-cover object-center sm:block"
-        />
+        <picture>
+          <source media="(max-width: 639px)" srcSet="/images/hero-ai-mobile.webp" />
+          {/* The two local WebP crops are already optimized. picture fetches only the active crop. */}
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src="/images/hero-ai-desktop.webp"
+            alt="Yapay zekâ ile oluşturulmuş, bina çevresinde uygulama yapan temsili kişi"
+            fetchPriority="high"
+            decoding="async"
+            className="absolute inset-0 h-full w-full object-cover object-[56%_center] sm:object-center"
+          />
+        </picture>
         <div className="absolute inset-0 bg-gradient-to-b from-ink/10 via-ink/35 to-ink/90 sm:bg-gradient-to-r sm:from-ink/75 sm:via-ink/25 sm:to-transparent" />
         <div className="absolute inset-0 bg-gradient-to-t from-ink/30 via-transparent to-transparent sm:from-ink/20" />
       </div>
