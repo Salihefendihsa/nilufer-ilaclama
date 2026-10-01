@@ -7,7 +7,7 @@ import { PACKAGES } from "@/lib/data/packages";
 
 export default function PricingSection({ showHeading = true }: { showHeading?: boolean }) {
   return (
-    <section className="bg-gradient-to-br from-ink via-ink to-primary-green/15 py-16 sm:py-24">
+    <section id="bakim-paketleri" className="scroll-mt-20 bg-gradient-to-br from-ink via-ink to-primary-green/15 py-16 sm:py-24">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {showHeading && <motion.div
           initial={{ opacity: 0, y: 24 }}

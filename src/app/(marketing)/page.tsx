@@ -7,6 +7,7 @@ import Services from "@/components/marketing/Services";
 import ContactOptions from "@/components/marketing/ContactOptions";
 import PricingSection from "@/components/marketing/PricingSection";
 import PestGuide from "@/components/marketing/PestGuide";
+import HomeSectionNav from "@/components/marketing/HomeSectionNav";
 
 export const metadata: Metadata = {
   title: "Nilüfer İlaçlama | Bursa'da Profesyonel İlaçlama ve Dezenfeksiyon Hizmetleri",
@@ -18,6 +19,7 @@ export const metadata: Metadata = {
 export default function Home() {
   return (
     <>
+      <HomeSectionNav />
       <Hero />
       <CoverageSection />
       <HowItWorks />

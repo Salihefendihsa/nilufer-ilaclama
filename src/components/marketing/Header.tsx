@@ -3,9 +3,11 @@
 import { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { AnimatePresence, motion } from "framer-motion";
 import { Phone } from "lucide-react";
 import { COMPANY } from "@/lib/data/company";
+import { HOME_SECTIONS } from "@/lib/data/homeSections";
 
 const NAV_LINKS = [
   { label: "Anasayfa", href: "/" },
@@ -19,6 +21,7 @@ const NAV_LINKS = [
 ];
 
 export default function Header() {
+  const pathname = usePathname();
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
 
@@ -119,6 +122,35 @@ export default function Header() {
                   {link.label}
                 </Link>
               ))}
+
+              {pathname === "/" && (
+                <div className="mt-2 border-t border-ink/10 pt-3">
+                  <p className="px-3 pb-1 text-xs font-bold uppercase tracking-wide text-ink/60">
+                    Sayfa bölümleri
+                  </p>
+                  {HOME_SECTIONS.map(({ id, label }) => (
+                    <a
+                      key={id}
+                      href={`#${id}`}
+                      onClick={(event) => {
+                        event.preventDefault();
+                        setMenuOpen(false);
+                        window.history.pushState(null, "", `#${id}`);
+                        window.setTimeout(() => {
+                          const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+                          document.getElementById(id)?.scrollIntoView({
+                            behavior: reduceMotion ? "instant" : "smooth",
+                            block: "start",
+                          });
+                        }, 300);
+                      }}
+                      className="flex min-h-11 items-center rounded-lg px-3 py-2.5 text-sm font-medium text-ink transition-colors hover:bg-primary-green/10 hover:text-primary-green focus-visible:outline focus-visible:outline-2 focus-visible:outline-primary-green"
+                    >
+                      {label}
+                    </a>
+                  ))}
+                </div>
+              )}
 
               <Link
                 href="/teklif"

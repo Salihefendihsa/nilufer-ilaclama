@@ -18,7 +18,7 @@ const SERVICE_TAGS = ["Konut", "İşyeri", "Endüstriyel tesis"];
 
 export default function Hero() {
   return (
-    <section className="relative isolate bg-ink lg:flex lg:min-h-[calc(100svh-64px)] lg:items-center">
+    <section id="giris" className="relative isolate scroll-mt-20 bg-ink lg:flex lg:min-h-[calc(100svh-64px)] lg:items-center">
       <div className="relative lg:absolute lg:inset-0">
         <picture className="block lg:h-full">
           <source media="(max-width: 1023px)" srcSet="/images/hero-ai-mobile.webp" />
@@ -33,16 +33,10 @@ export default function Hero() {
           />
         </picture>
         <div className="absolute inset-0 hidden bg-gradient-to-r from-ink/75 via-ink/25 to-transparent lg:block" />
-        <span className="absolute bottom-4 left-6 hidden rounded-md bg-ink/60 px-2 py-1 text-xs text-white lg:block">
-          Yapay zekâ ile oluşturulmuş temsili görsel
-        </span>
       </div>
 
-      <div className="relative z-10 mx-auto w-full max-w-7xl px-4 py-10 sm:px-6 lg:px-8 lg:py-24">
-        <div className="max-w-3xl lg:max-w-[640px]">
-          <p className="mb-5 text-xs text-white/60 lg:hidden">
-            Yapay zekâ ile oluşturulmuş temsili görsel
-          </p>
+      <div className="relative z-10 mx-auto w-full max-w-7xl px-4 py-10 sm:px-6 lg:px-8 lg:py-24 xl:pl-14 2xl:max-w-[1600px] 2xl:pl-12">
+        <div className="max-w-3xl lg:max-w-[640px] 2xl:max-w-[720px]">
           <motion.p
             initial="hidden"
             animate="visible"
@@ -59,7 +53,7 @@ export default function Hero() {
             animate="visible"
             custom={0.1}
             variants={fadeUp}
-            className="mt-5 max-w-2xl text-balance text-3xl font-extrabold leading-tight tracking-tight text-white sm:mt-6 sm:text-4xl lg:text-5xl"
+            className="mt-5 max-w-2xl text-balance text-3xl font-extrabold leading-tight tracking-tight text-white sm:mt-6 sm:text-4xl lg:text-5xl 2xl:text-6xl"
           >
             Bursa&apos;da profesyonel{" "}
             <span className="text-primary-green">ilaçlama</span> ve haşere

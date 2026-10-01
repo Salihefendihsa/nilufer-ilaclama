@@ -28,7 +28,7 @@ export default function CoverageSection() {
   const hoveredDistrict = DISTRICTS.find((d) => d.name === hovered);
 
   return (
-    <section className="bg-ink py-14 sm:py-24">
+    <section id="hizmet-bolgeleri" className="scroll-mt-20 bg-ink py-14 sm:py-24">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 24 }}

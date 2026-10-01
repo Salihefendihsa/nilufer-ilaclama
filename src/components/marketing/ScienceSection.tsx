@@ -116,7 +116,7 @@ function OrbitDiagram() {
 
 export default function ScienceSection() {
   return (
-    <section className="overflow-hidden bg-white py-14 sm:py-24">
+    <section id="mekana-ozel-planlama" className="scroll-mt-20 overflow-hidden bg-white py-14 sm:py-24">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 items-center gap-10 sm:gap-16 lg:grid-cols-2 lg:gap-8">
           <motion.div

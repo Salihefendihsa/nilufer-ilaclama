@@ -14,7 +14,7 @@ const ICONS: Record<ServiceIcon, LucideIcon> = {
 
 export default function Services() {
   return (
-    <section className="bg-white py-16 sm:py-24">
+    <section id="hizmetler" className="scroll-mt-20 bg-white py-16 sm:py-24">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-2xl text-center">
           <h2 className="text-3xl font-extrabold text-ink sm:text-4xl">
