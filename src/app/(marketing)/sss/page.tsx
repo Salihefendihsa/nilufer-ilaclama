@@ -107,7 +107,7 @@ function FaqItem({ faq, index }: { faq: Faq; index: number }) {
 
 export default function SssPage() {
   return (
-    <section className="bg-white px-4 py-20 sm:px-6 lg:px-8">
+    <section className="bg-white px-4 py-14 sm:py-20 sm:px-6 lg:px-8">
       <div className="mx-auto max-w-3xl">
         <div className="text-center">
           <h1 className="text-3xl font-extrabold text-ink sm:text-4xl">

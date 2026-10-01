@@ -18,10 +18,10 @@ const SERVICE_TAGS = ["Konut", "İşyeri", "Endüstriyel tesis"];
 
 export default function Hero() {
   return (
-    <section className="relative z-0 flex min-h-[calc(100svh-68px)] w-full items-end overflow-hidden bg-ink sm:min-h-[calc(100svh-64px)] sm:items-center">
-      <div className="absolute inset-0 z-0">
-        <picture>
-          <source media="(max-width: 639px)" srcSet="/images/hero-ai-mobile.webp" />
+    <section className="relative isolate bg-ink lg:flex lg:min-h-[calc(100svh-64px)] lg:items-center">
+      <div className="relative lg:absolute lg:inset-0">
+        <picture className="block lg:h-full">
+          <source media="(max-width: 1023px)" srcSet="/images/hero-ai-mobile.webp" />
           {/* The two local WebP crops are already optimized. picture fetches only the active crop. */}
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
@@ -29,15 +29,20 @@ export default function Hero() {
             alt="Yapay zekâ ile oluşturulmuş, bina çevresinde uygulama yapan temsili kişi"
             fetchPriority="high"
             decoding="async"
-            className="absolute inset-0 h-full w-full object-cover object-[56%_center] sm:object-center"
+            className="block h-auto w-full object-contain lg:absolute lg:inset-0 lg:h-full lg:object-cover lg:object-center"
           />
         </picture>
-        <div className="absolute inset-0 bg-gradient-to-b from-ink/10 via-ink/35 to-ink/90 sm:bg-gradient-to-r sm:from-ink/75 sm:via-ink/25 sm:to-transparent" />
-        <div className="absolute inset-0 bg-gradient-to-t from-ink/30 via-transparent to-transparent sm:from-ink/20" />
+        <div className="absolute inset-0 hidden bg-gradient-to-r from-ink/75 via-ink/25 to-transparent lg:block" />
+        <span className="absolute bottom-4 left-6 hidden rounded-md bg-ink/60 px-2 py-1 text-xs text-white lg:block">
+          Yapay zekâ ile oluşturulmuş temsili görsel
+        </span>
       </div>
 
-      <div className="relative z-10 mx-auto w-full max-w-7xl px-4 py-12 sm:px-6 sm:py-24 lg:px-8">
-        <div className="max-w-3xl">
+      <div className="relative z-10 mx-auto w-full max-w-7xl px-4 py-10 sm:px-6 lg:px-8 lg:py-24">
+        <div className="max-w-3xl lg:max-w-[640px]">
+          <p className="mb-5 text-xs text-white/60 lg:hidden">
+            Yapay zekâ ile oluşturulmuş temsili görsel
+          </p>
           <motion.p
             initial="hidden"
             animate="visible"
@@ -54,7 +59,7 @@ export default function Hero() {
             animate="visible"
             custom={0.1}
             variants={fadeUp}
-            className="mt-6 text-balance text-4xl font-extrabold leading-[1.1] tracking-tight text-white sm:text-5xl lg:text-6xl"
+            className="mt-5 max-w-2xl text-balance text-3xl font-extrabold leading-tight tracking-tight text-white sm:mt-6 sm:text-4xl lg:text-5xl"
           >
             Bursa&apos;da profesyonel{" "}
             <span className="text-primary-green">ilaçlama</span> ve haşere
@@ -66,7 +71,7 @@ export default function Hero() {
             animate="visible"
             custom={0.2}
             variants={fadeUp}
-            className="mt-5 max-w-2xl text-base leading-relaxed text-white/80 sm:text-lg"
+            className="mt-5 max-w-2xl text-base leading-relaxed text-white/80 sm:text-lg lg:max-w-xl"
           >
             Ev, işyeri ve tesisler için ücretsiz keşif talep edin. Ekibimiz
             sizi arasın, ihtiyacınıza uygun uygulamayı birlikte planlayalım.
@@ -77,7 +82,7 @@ export default function Hero() {
             animate="visible"
             custom={0.25}
             variants={fadeUp}
-            className="mt-5 flex flex-wrap gap-2"
+            className="mt-5 hidden flex-wrap gap-2 lg:flex"
           >
             {SERVICE_TAGS.map((tag) => (
               <li
@@ -94,11 +99,11 @@ export default function Hero() {
             animate="visible"
             custom={0.3}
             variants={fadeUp}
-            className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center"
+            className="mt-7 flex flex-col gap-3 sm:mt-8 sm:flex-row sm:flex-wrap sm:items-center"
           >
             <Link
               href="/teklif"
-              className="inline-flex min-h-12 items-center justify-center rounded-full bg-primary-red px-7 py-3 text-base font-semibold text-white shadow-lg shadow-primary-red/30 transition-colors duration-300 hover:bg-primary-green"
+              className="inline-flex min-h-12 items-center justify-center rounded-full bg-primary-red px-7 py-3 text-base font-semibold text-white transition-colors duration-300 hover:bg-primary-green"
             >
               Ücretsiz Keşif Talep Et
             </Link>
@@ -113,7 +118,7 @@ export default function Hero() {
               href={COMPANY.whatsappHref}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex min-h-12 items-center justify-center gap-2 rounded-full border-2 border-white/70 px-6 py-3 text-base font-semibold text-white transition-colors duration-300 hover:border-primary-green hover:bg-primary-green"
+              className="inline-flex min-h-12 items-center justify-center gap-2 rounded-full border-2 border-white/70 px-6 py-3 text-base font-semibold text-white transition-colors duration-300 hover:border-primary-green hover:bg-primary-green lg:hidden"
             >
               <MessageCircle size={18} aria-hidden />
               WhatsApp
@@ -136,9 +141,6 @@ export default function Hero() {
           </motion.p>
         </div>
       </div>
-      <span className="absolute bottom-2 left-4 z-10 rounded-md bg-ink/50 px-2 py-1 text-xs text-white/90 sm:bottom-4 sm:left-6">
-        Yapay zekâ ile oluşturulmuş temsili görsel
-      </span>
     </section>
   );
 }

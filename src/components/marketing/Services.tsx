@@ -14,7 +14,7 @@ const ICONS: Record<ServiceIcon, LucideIcon> = {
 
 export default function Services() {
   return (
-    <section className="bg-white py-24">
+    <section className="bg-white py-16 sm:py-24">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-2xl text-center">
           <h2 className="text-3xl font-extrabold text-ink sm:text-4xl">
@@ -26,7 +26,7 @@ export default function Services() {
           </p>
         </div>
 
-        <div className="mt-14 grid grid-cols-1 gap-6 sm:grid-cols-2">
+        <div className="mt-10 grid grid-cols-1 gap-5 sm:mt-14 sm:grid-cols-2 sm:gap-6">
           {SERVICES.map((service, i) => {
             const Icon = ICONS[service.icon];
             return (

@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { Building2, CheckCircle2, Factory, Home as HomeIcon, MoreHorizontal } from "lucide-react";
 import { createClient } from "@/lib/supabase/client";
@@ -68,11 +68,22 @@ const slideVariants = {
 };
 
 export default function TeklifPage() {
+  const stepStartRef = useRef<HTMLDivElement>(null);
+  const errorRef = useRef<HTMLParagraphElement>(null);
+  const successRef = useRef<HTMLDivElement>(null);
   const [step, setStep] = useState(1);
   const [form, setForm] = useState<FormState>(INITIAL_STATE);
   const [submitting, setSubmitting] = useState(false);
   const [submitError, setSubmitError] = useState<string | null>(null);
   const [submitted, setSubmitted] = useState(false);
+
+  useEffect(() => {
+    if (submitError) errorRef.current?.scrollIntoView({ behavior: "auto", block: "center" });
+  }, [submitError]);
+
+  useEffect(() => {
+    if (submitted) successRef.current?.scrollIntoView({ behavior: "auto", block: "center" });
+  }, [submitted]);
 
   const update = (patch: Partial<FormState>) =>
     setForm((prev) => ({ ...prev, ...patch }));
@@ -82,8 +93,12 @@ export default function TeklifPage() {
     (step === 2 && form.propertyType !== "") ||
     (step === 3 && form.fullName.trim() !== "" && form.phone.trim() !== "");
 
-  const handleNext = () => setStep((s) => Math.min(s + 1, 4));
-  const handleBack = () => setStep((s) => Math.max(s - 1, 1));
+  const moveToStep = (next: number) => {
+    setStep(next);
+    stepStartRef.current?.scrollIntoView({ behavior: "auto", block: "start" });
+  };
+  const handleNext = () => moveToStep(Math.min(step + 1, 4));
+  const handleBack = () => moveToStep(Math.max(step - 1, 1));
 
   const handleSubmit = async () => {
     setSubmitting(true);
@@ -125,6 +140,7 @@ export default function TeklifPage() {
     return (
       <section className="flex min-h-screen items-center justify-center bg-white px-4 py-24">
         <motion.div
+          ref={successRef}
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
@@ -135,7 +151,7 @@ export default function TeklifPage() {
             strokeWidth={1.5}
             className="mx-auto text-primary-green"
           />
-          <h1 className="mt-6 text-2xl font-extrabold text-ink">
+          <h1 role="status" className="mt-6 text-2xl font-extrabold text-ink">
             Talebiniz Alındı
           </h1>
           <p className="mt-3 text-ink/60">
@@ -154,7 +170,7 @@ export default function TeklifPage() {
   }
 
   return (
-    <section className="min-h-screen bg-white px-4 py-20 sm:px-6 lg:px-8">
+    <section className="min-h-screen bg-white px-4 py-14 sm:py-20 sm:px-6 lg:px-8">
       <div className="mx-auto max-w-2xl">
         <div className="text-center">
           <h1 className="text-3xl font-extrabold text-ink sm:text-4xl">
@@ -169,11 +185,11 @@ export default function TeklifPage() {
           </p>
         </div>
 
-        <div className="mt-10">
+        <div ref={stepStartRef} className="mt-10 scroll-mt-24">
           <ProgressBar step={step} />
         </div>
 
-        <div className="relative mt-10 min-h-[320px] overflow-hidden">
+        <div className="relative mt-8 overflow-hidden sm:mt-10">
           <AnimatePresence mode="wait">
             {step === 1 && (
               <motion.div
@@ -193,7 +209,8 @@ export default function TeklifPage() {
                       key={service.slug}
                       type="button"
                       onClick={() => update({ serviceType: service.title })}
-                      className={`rounded-xl border-2 p-4 text-left text-sm font-semibold transition-colors ${
+                      aria-pressed={form.serviceType === service.title}
+                      className={`min-h-12 rounded-xl border-2 p-4 text-left text-sm font-semibold transition-colors ${
                         form.serviceType === service.title
                           ? "border-primary-green bg-primary-green/10 text-primary-green"
                           : "border-ink/10 text-ink hover:border-primary-green/50"
@@ -222,7 +239,8 @@ export default function TeklifPage() {
                       key={value}
                       type="button"
                       onClick={() => update({ propertyType: value })}
-                      className={`flex flex-col items-center gap-2 rounded-xl border-2 p-4 text-sm font-semibold transition-colors ${
+                      aria-pressed={form.propertyType === value}
+                      className={`flex min-h-20 flex-col items-center justify-center gap-2 rounded-xl border-2 p-3 text-sm font-semibold transition-colors sm:p-4 ${
                         form.propertyType === value
                           ? "border-primary-green bg-primary-green/10 text-primary-green"
                           : "border-ink/10 text-ink hover:border-primary-green/50"
@@ -248,53 +266,63 @@ export default function TeklifPage() {
               >
                 <h2 className="text-lg font-bold text-ink">İletişim bilgileriniz</h2>
                 <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
-                  <input
+                  <label className="flex flex-col gap-2 text-sm font-semibold text-ink">
+                    <span>Ad Soyad <span aria-hidden className="text-primary-red">*</span><span className="sr-only">zorunlu</span></span>
+                    <input
                     type="text"
-                    aria-label="Ad Soyad"
                     autoComplete="name"
                     required
-                    placeholder="Ad Soyad *"
+                    placeholder="Adınız ve soyadınız"
                     value={form.fullName}
                     onChange={(e) => update({ fullName: e.target.value })}
-                    className="rounded-lg border border-ink/15 px-4 py-2.5 text-sm outline-none transition-colors focus:border-primary-green"
-                  />
-                  <input
+                    className="min-h-12 w-full rounded-lg border border-ink/15 px-4 py-2.5 text-base font-normal outline-none transition-colors focus:border-primary-green sm:text-sm"
+                    />
+                  </label>
+                  <label className="flex flex-col gap-2 text-sm font-semibold text-ink">
+                    <span>Telefon <span aria-hidden className="text-primary-red">*</span><span className="sr-only">zorunlu</span></span>
+                    <input
                     type="tel"
-                    aria-label="Telefon"
                     autoComplete="tel"
                     required
-                    placeholder="Telefon *"
+                    placeholder="Telefon numaranız"
                     value={form.phone}
                     onChange={(e) => update({ phone: e.target.value })}
-                    className="rounded-lg border border-ink/15 px-4 py-2.5 text-sm outline-none transition-colors focus:border-primary-green"
-                  />
-                  <input
+                    className="min-h-12 w-full rounded-lg border border-ink/15 px-4 py-2.5 text-base font-normal outline-none transition-colors focus:border-primary-green sm:text-sm"
+                    />
+                  </label>
+                  <label className="flex flex-col gap-2 text-sm font-semibold text-ink">
+                    <span>E-posta <span className="font-normal text-ink/50">(isteğe bağlı)</span></span>
+                    <input
                     type="email"
-                    aria-label="E-posta"
                     autoComplete="email"
-                    placeholder="E-posta"
+                    placeholder="E-posta adresiniz"
                     value={form.email}
                     onChange={(e) => update({ email: e.target.value })}
-                    className="rounded-lg border border-ink/15 px-4 py-2.5 text-sm outline-none transition-colors focus:border-primary-green"
-                  />
-                  <input
+                    className="min-h-12 w-full rounded-lg border border-ink/15 px-4 py-2.5 text-base font-normal outline-none transition-colors focus:border-primary-green sm:text-sm"
+                    />
+                  </label>
+                  <label className="flex flex-col gap-2 text-sm font-semibold text-ink">
+                    <span>İlçe <span className="font-normal text-ink/50">(isteğe bağlı)</span></span>
+                    <input
                     type="text"
-                    aria-label="İlçe"
                     autoComplete="address-level2"
-                    placeholder="İlçe"
+                    placeholder="İlçeniz"
                     value={form.district}
                     onChange={(e) => update({ district: e.target.value })}
-                    className="rounded-lg border border-ink/15 px-4 py-2.5 text-sm outline-none transition-colors focus:border-primary-green"
-                  />
-                  <input
+                    className="min-h-12 w-full rounded-lg border border-ink/15 px-4 py-2.5 text-base font-normal outline-none transition-colors focus:border-primary-green sm:text-sm"
+                    />
+                  </label>
+                  <label className="flex flex-col gap-2 text-sm font-semibold text-ink sm:col-span-2">
+                    <span>Adres <span className="font-normal text-ink/50">(isteğe bağlı)</span></span>
+                    <input
                     type="text"
-                    aria-label="Adres"
                     autoComplete="street-address"
-                    placeholder="Adres"
+                    placeholder="Adresiniz"
                     value={form.address}
                     onChange={(e) => update({ address: e.target.value })}
-                    className="rounded-lg border border-ink/15 px-4 py-2.5 text-sm outline-none transition-colors focus:border-primary-green sm:col-span-2"
-                  />
+                    className="min-h-12 w-full rounded-lg border border-ink/15 px-4 py-2.5 text-base font-normal outline-none transition-colors focus:border-primary-green sm:text-sm"
+                    />
+                  </label>
                 </div>
               </motion.div>
             )}
@@ -329,7 +357,7 @@ export default function TeklifPage() {
                 </dl>
 
                 {submitError && (
-                  <p className="mt-4 text-sm text-primary-red">{submitError}</p>
+                  <p ref={errorRef} role="alert" className="mt-4 text-sm text-primary-red">{submitError}</p>
                 )}
               </motion.div>
             )}

@@ -106,7 +106,7 @@ export default function Header() {
             animate={{ height: "auto", opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
             transition={{ duration: 0.25, ease: "easeInOut" }}
-            className="overflow-hidden border-t border-ink/10 bg-white/95 backdrop-blur-md xl:hidden"
+            className="max-h-[calc(100dvh-68px)] overflow-y-auto border-t border-ink/10 bg-white/95 backdrop-blur-md xl:hidden"
           >
             <div className="flex flex-col gap-1 px-4 py-4 sm:px-6">
               {NAV_LINKS.map((link) => (
@@ -114,7 +114,7 @@ export default function Header() {
                   key={link.href}
                   href={link.href}
                   onClick={() => setMenuOpen(false)}
-                  className="rounded-lg px-3 py-2.5 text-sm font-medium text-ink transition-colors hover:bg-primary-green/10 hover:text-primary-green"
+                  className="flex min-h-11 items-center rounded-lg px-3 py-2.5 text-sm font-medium text-ink transition-colors hover:bg-primary-green/10 hover:text-primary-green"
                 >
                   {link.label}
                 </Link>

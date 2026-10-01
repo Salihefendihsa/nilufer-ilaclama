@@ -119,7 +119,7 @@ export const PESTS: PestItem[] = [
       {
         step: "Kullanılan Ürün/Ekipman",
         description:
-          "Endüstriyel ısı jeneratörü ve kalıntı etkili, onaylı insektisit formülasyonları kullanılır.",
+          "Isı uygulaması ve kullanılabilecek ürünler, alanın koşullarına ve ürün etiketine göre belirlenir.",
       },
       {
         step: "Takip",
@@ -135,7 +135,7 @@ export const PESTS: PestItem[] = [
     icon: "bug-play",
     description: "Koloniler halinde yaşar, mutfak ve bahçe alanlarında yaygın görülür.",
     details:
-      "Karıncalar geniş koloniler kurarak gıda kaynaklarına ulaşır. Yuva tespiti ve yem bazlı uygulamalarla kalıcı çözüm sağlanır, yüzey ilaçlaması tek başına yeterli olmaz.",
+      "Karıncalar geniş koloniler kurarak gıda kaynaklarına ulaşır. Yuva tespiti ve yem bazlı yöntemler değerlendirilebilir; yüzey uygulaması tek başına yeterli olmayabilir.",
     harms: [
       "Gıda kaynaklarını kirletir ve israfa yol açar",
       "Bina temellerinde ve yalıtımda zayıflamaya sebep olabilir",
@@ -230,7 +230,7 @@ export const PESTS: PestItem[] = [
       {
         step: "Kullanılan Ürün/Ekipman",
         description:
-          "Elektrikli UV sinek tuzakları ve kalıntı etkili, gıda alanlarına uygun onaylı ürünler kullanılır.",
+          "Elektrikli UV sinek tuzakları ve alana uygun ürün seçenekleri keşifte değerlendirilir; ürün etiketi ve ilgili koşullar dikkate alınır.",
       },
       {
         step: "Takip",

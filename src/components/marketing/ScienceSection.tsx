@@ -46,7 +46,7 @@ function OrbitDiagram() {
         viewBox="0 0 420 420"
         aria-hidden
       >
-        <motion.circle
+        <circle
           cx="210"
           cy="210"
           r="180"
@@ -54,15 +54,6 @@ function OrbitDiagram() {
           stroke="rgba(93,161,48,0.15)"
           strokeWidth="1"
           strokeDasharray="3 9"
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          animate={{ rotate: 360 }}
-          transition={{
-            opacity: { duration: 0.6 },
-            rotate: { duration: 20, repeat: Infinity, ease: "linear" },
-          }}
-          style={{ transformOrigin: "210px 210px" }}
         />
 
         {ORBIT_ITEMS.map((item) => {
@@ -71,7 +62,7 @@ function OrbitDiagram() {
           const y = 210 + RADIUS * Math.sin(rad);
           return (
             <g key={item.label}>
-              <motion.line
+              <line
                 x1="210"
                 y1="210"
                 x2={x}
@@ -79,112 +70,36 @@ function OrbitDiagram() {
                 stroke="rgba(93,161,48,0.35)"
                 strokeWidth="2"
                 strokeDasharray="4 4"
-                initial={{ opacity: 0 }}
-                whileInView={{ opacity: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: 0.3 }}
-              >
-                <animate
-                  attributeName="stroke-dashoffset"
-                  values="0;-16"
-                  dur="20s"
-                  repeatCount="indefinite"
-                />
-              </motion.line>
-              <circle r="3.5" fill="#5DA130">
-                <animateMotion
-                  path={`M210,210 L${x},${y}`}
-                  dur="2.4s"
-                  begin={`${0.4 * ORBIT_ITEMS.indexOf(item)}s`}
-                  repeatCount="indefinite"
-                />
-                <animate
-                  attributeName="opacity"
-                  values="0;1;1;0"
-                  keyTimes="0;0.1;0.85;1"
-                  dur="2.4s"
-                  begin={`${0.4 * ORBIT_ITEMS.indexOf(item)}s`}
-                  repeatCount="indefinite"
-                />
-              </circle>
+              />
             </g>
           );
         })}
       </svg>
 
       <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
-        {/* Çok katmanlı, farklı opaklıkta glow halkaları */}
-        <div
-          aria-hidden
-          className="pointer-events-none absolute left-1/2 top-1/2 h-48 w-48 sm:h-64 sm:w-64 -translate-x-1/2 -translate-y-1/2 rounded-full bg-gradient-to-br from-primary-red/25 via-primary-red/10 to-primary-green/25 blur-3xl"
-        />
-        <div
-          aria-hidden
-          className="pointer-events-none absolute left-1/2 top-1/2 h-48 w-48 -translate-x-1/2 -translate-y-1/2 rounded-full bg-gradient-to-tr from-primary-green/30 via-transparent to-primary-red/30 blur-2xl"
-        />
-
-        {/* Sonar/radar halkaları — farklı gecikmelerle genişleyip kaybolur */}
-        {[0, 0.8, 1.6].map((delay) => (
-          <motion.span
-            key={delay}
-            aria-hidden
-            initial={{ opacity: 0.5, scale: 1 }}
-            animate={{ opacity: 0, scale: 2.4 }}
-            transition={{
-              duration: 2.4,
-              delay,
-              repeat: Infinity,
-              ease: "easeOut",
-            }}
-            className="pointer-events-none absolute left-1/2 top-1/2 h-24 w-24 sm:h-32 sm:w-32 -translate-x-1/2 -translate-y-1/2 rounded-full border border-primary-green/60"
-          />
-        ))}
-
-        <motion.div
-          initial={{ opacity: 0, scale: 0.7 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="relative flex h-24 w-24 sm:h-32 sm:w-32 items-center justify-center rounded-full bg-gradient-to-br from-primary-red via-primary-red/80 to-primary-green shadow-2xl shadow-primary-red/30"
-        >
-          <motion.div
-            animate={{ scale: [1, 1.08, 1] }}
-            transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+        <div className="relative flex h-24 w-24 sm:h-32 sm:w-32 items-center justify-center rounded-full bg-primary-red">
+          <div
             className="flex h-16 w-16 sm:h-24 sm:w-24 items-center justify-center rounded-full bg-white/10 backdrop-blur-sm ring-1 ring-inset ring-white/30"
           >
             <Biohazard size={40} className="text-white" strokeWidth={1.6} />
-          </motion.div>
-        </motion.div>
+          </div>
+        </div>
       </div>
 
-      {ORBIT_ITEMS.map((item, i) => {
+      {ORBIT_ITEMS.map((item) => {
         const rad = (item.angle * Math.PI) / 180;
         const x = 210 + RADIUS * Math.cos(rad);
         const y = 210 + RADIUS * Math.sin(rad);
         const Icon = item.icon;
         return (
-          <motion.div
+          <div
             key={item.label}
-            initial={{ opacity: 0, scale: 0.4 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            whileHover={{
-              scale: 1.1,
-              boxShadow: "0 0 24px rgba(93,161,48,0.45)",
-            }}
-            viewport={{ once: true }}
-            transition={{
-              type: "spring",
-              stiffness: 260,
-              damping: 14,
-              delay: 0.4 + i * 0.15,
-            }}
             style={{
               left: `${(x / 420) * 100}%`,
               top: `${(y / 420) * 100}%`,
-              x: "-50%",
-              y: "-50%",
+              transform: "translate(-50%, -50%)",
             }}
-            className="absolute flex w-[22%] min-w-[72px] cursor-default flex-col items-center gap-2 rounded-2xl border border-ink/10 bg-white p-2 text-center sm:p-3 shadow-md transition-shadow duration-300"
+            className="absolute flex w-[22%] min-w-[72px] cursor-default flex-col items-center gap-2 rounded-2xl border border-ink/10 bg-white p-2 text-center sm:p-3"
           >
             <div className="flex h-9 w-9 items-center justify-center rounded-full bg-primary-green/10 text-primary-green">
               <Icon size={18} strokeWidth={1.8} />
@@ -192,7 +107,7 @@ function OrbitDiagram() {
             <p className="text-[11px] font-semibold leading-tight text-ink">
               {item.label}
             </p>
-          </motion.div>
+          </div>
         );
       })}
     </div>
@@ -201,9 +116,9 @@ function OrbitDiagram() {
 
 export default function ScienceSection() {
   return (
-    <section className="overflow-hidden bg-white py-16 sm:py-24">
+    <section className="overflow-hidden bg-white py-14 sm:py-24">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 items-center gap-16 lg:grid-cols-2 lg:gap-8">
+        <div className="grid grid-cols-1 items-center gap-10 sm:gap-16 lg:grid-cols-2 lg:gap-8">
           <motion.div
             initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -263,7 +178,18 @@ export default function ScienceSection() {
             viewport={{ once: true, amount: 0.3 }}
             transition={{ duration: 0.6, delay: 0.1 }}
           >
-            <OrbitDiagram />
+            <div className="grid grid-cols-2 gap-3 lg:hidden">
+              {ORBIT_ITEMS.map((item) => {
+                const Icon = item.icon;
+                return (
+                  <div key={item.label} className="flex min-h-24 flex-col items-center justify-center gap-2 rounded-2xl border border-ink/10 p-4 text-center">
+                    <Icon size={22} className="text-primary-green" aria-hidden />
+                    <span className="text-sm font-semibold text-ink">{item.label}</span>
+                  </div>
+                );
+              })}
+            </div>
+            <div className="hidden lg:block"><OrbitDiagram /></div>
           </motion.div>
         </div>
       </div>

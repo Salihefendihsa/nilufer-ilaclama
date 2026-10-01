@@ -70,7 +70,7 @@ export default function ServiceDetailTabs() {
   };
 
   return (
-    <section className="bg-ink/[0.02] py-24">
+    <section className="bg-ink/[0.02] py-16 sm:py-24">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-2xl text-center">
           <h2 className="text-3xl font-extrabold text-ink sm:text-4xl">
@@ -89,7 +89,8 @@ export default function ServiceDetailTabs() {
                 key={tab.key}
                 type="button"
                 onClick={() => setSolutionTab(tab.key)}
-                className={`rounded-full px-5 py-2 text-sm font-semibold transition-colors duration-300 ${
+                aria-pressed={solutionTab === tab.key}
+                className={`min-h-11 rounded-full px-4 py-2 text-sm font-semibold transition-colors duration-300 sm:px-5 ${
                   solutionTab === tab.key
                     ? "bg-primary-green text-white"
                     : "text-ink/40 hover:text-ink/70"
@@ -109,7 +110,8 @@ export default function ServiceDetailTabs() {
                 key={service.slug}
                 type="button"
                 onClick={() => setActiveIndex(i)}
-                className={`inline-flex items-center gap-2 rounded-full border px-4 py-2 text-xs font-semibold transition-colors duration-300 sm:text-sm ${
+                aria-pressed={activeIndex === i}
+                className={`inline-flex min-h-11 items-center gap-2 rounded-full border px-4 py-2 text-xs font-semibold transition-colors duration-300 sm:text-sm ${
                   activeIndex === i
                     ? "border-primary-green bg-primary-green/10 text-primary-green"
                     : "border-ink/10 text-ink/50 hover:border-primary-green/40 hover:text-ink/80"
@@ -163,7 +165,7 @@ export default function ServiceDetailTabs() {
                   </p>
                 </div>
 
-                <div className="mt-7 grid grid-cols-2 gap-3">
+                <div className="mt-7 grid grid-cols-1 gap-3 sm:grid-cols-2">
                   {activeService.subServices.map((sub) => {
                     const SubIcon = SUB_SERVICE_ICONS[sub.icon];
                     return (
@@ -198,7 +200,7 @@ export default function ServiceDetailTabs() {
             type="button"
             aria-label="Önceki hizmet"
             onClick={() => goTo(activeIndex - 1)}
-            className="flex h-10 w-10 items-center justify-center rounded-full border border-ink/15 text-ink/50 transition-colors hover:border-primary-green hover:text-primary-green"
+            className="flex h-11 w-11 items-center justify-center rounded-full border border-ink/15 text-ink/50 transition-colors hover:border-primary-green hover:text-primary-green"
           >
             <ChevronLeft size={18} />
           </button>
@@ -206,7 +208,7 @@ export default function ServiceDetailTabs() {
             type="button"
             aria-label="Sonraki hizmet"
             onClick={() => goTo(activeIndex + 1)}
-            className="flex h-10 w-10 items-center justify-center rounded-full border border-ink/15 text-ink/50 transition-colors hover:border-primary-green hover:text-primary-green"
+            className="flex h-11 w-11 items-center justify-center rounded-full border border-ink/15 text-ink/50 transition-colors hover:border-primary-green hover:text-primary-green"
           >
             <ChevronRight size={18} />
           </button>

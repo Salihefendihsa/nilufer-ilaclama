@@ -37,7 +37,7 @@ export default function PestDetailPage({ params }: PageProps) {
   const Icon = ICONS[pest.icon];
 
   return (
-    <section className="bg-white px-4 py-20 sm:px-6 lg:px-8">
+    <section className="bg-white px-4 py-14 sm:py-20 sm:px-6 lg:px-8">
       <div className="mx-auto max-w-3xl">
         <Link
           href="/hasere-rehberi"
@@ -63,7 +63,7 @@ export default function PestDetailPage({ params }: PageProps) {
           {pest.details}
         </p>
 
-        <div className="mt-14">
+        <div className="mt-10 sm:mt-14">
           <h2 className="flex items-center gap-2 text-xl font-bold text-ink">
             <AlertTriangle size={20} className="text-primary-red" />
             Neden Tehlikeli?
@@ -80,7 +80,7 @@ export default function PestDetailPage({ params }: PageProps) {
           </div>
         </div>
 
-        <div className="mt-14">
+        <div className="mt-10 sm:mt-14">
           <h2 className="flex items-center gap-2 text-xl font-bold text-ink">
             <ShieldCheck size={20} className="text-primary-green" />
             Genel Uygulama Süreci
@@ -106,7 +106,7 @@ export default function PestDetailPage({ params }: PageProps) {
           </div>
         </div>
 
-        <div className="mt-14 rounded-2xl border border-primary-green/30 bg-primary-green/5 p-6">
+        <div className="mt-10 sm:mt-14 rounded-2xl border border-primary-green/30 bg-primary-green/5 p-6">
           <p className="text-sm font-semibold text-ink">
             Bu Sorunla mı Karşılaştınız?
           </p>

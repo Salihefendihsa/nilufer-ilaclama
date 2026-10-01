@@ -15,7 +15,7 @@ const ICONS: Record<PestIcon, LucideIcon> = {
 
 export default function PestGuide() {
   return (
-    <section className="bg-white py-24">
+    <section className="bg-white py-16 sm:py-24">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-2xl text-center">
           <h2 className="text-3xl font-extrabold text-ink sm:text-4xl">
@@ -27,7 +27,7 @@ export default function PestGuide() {
           </p>
         </div>
 
-        <div className="mt-14 grid grid-cols-2 gap-4 sm:grid-cols-3 sm:gap-6 lg:grid-cols-4">
+        <div className="mt-10 grid grid-cols-1 gap-4 min-[420px]:grid-cols-2 sm:mt-14 sm:grid-cols-3 sm:gap-6 lg:grid-cols-4">
           {PESTS.map((pest, i) => {
             const Icon = ICONS[pest.icon];
             return (
@@ -40,7 +40,7 @@ export default function PestGuide() {
               >
                 <Link
                   href={`/hasere-rehberi/${pest.slug}`}
-                  className="group flex flex-col items-center rounded-2xl border border-ink/10 bg-white p-5 text-center shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-primary-green hover:shadow-lg"
+                  className="group flex min-h-32 flex-col items-center justify-center rounded-2xl border border-ink/10 bg-white p-5 text-center transition-colors duration-300 hover:border-primary-green"
                 >
                   <div className="flex h-14 w-14 items-center justify-center rounded-full bg-primary-red/10 text-primary-red transition-colors duration-300 group-hover:bg-primary-red group-hover:text-white">
                     <Icon size={26} strokeWidth={1.8} />

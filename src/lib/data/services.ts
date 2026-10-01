@@ -46,13 +46,13 @@ export const SERVICES: ServiceItem[] = [
         title: "Bahçe İlaçlama",
         icon: "trees",
         description:
-          "Bahçe alanlarındaki zararlı böcek ve haşerelere karşı koruyucu uygulama yapıyoruz. Bitki örtüsüne zarar vermeyen, seçici etkili ürünler kullanılır.",
+          "Bahçe alanındaki zararlılar ve bitki örtüsü birlikte değerlendirilir. Uygun ürün ve yöntem, bitki türü ile alan koşullarına göre seçilir.",
       },
       {
         title: "Ev-Bahçe İlaçlama",
         icon: "home",
         description:
-          "Konut iç mekanı ile bahçeyi birlikte kapsayan bütünleşik bir program sunuyoruz. Aynı ziyarette hem içeride hem dışarıda kalıcı koruma sağlanır.",
+          "Konut iç mekânı ve bahçe birlikte değerlendirilir. İç ve dış alan için uygun yöntem ile ziyaret kapsamı keşifte belirlenir.",
       },
       {
         title: "Haşere İlaçlama",
@@ -70,7 +70,7 @@ export const SERVICES: ServiceItem[] = [
     whyUs: [
       "Ürün ve yöntem seçimini keşifte belirlenen ihtiyaca göre yapıyoruz",
       "Raporlama kapsamını teklif aşamasında sizinle netleştiriyoruz",
-      "Evcil hayvan ve çocuklar için güvenli, düşük kokulu ürün seçenekleri sunuyoruz",
+      "Evcil hayvan ve çocukların bulunduğu alanların koşullarını ürün seçiminde değerlendiriyoruz",
       "Uygulama sonrası takip ve tekrar uygulama koşullarını teklifte belirtiyoruz",
     ],
     corporateDescription:
@@ -84,7 +84,7 @@ export const SERVICES: ServiceItem[] = [
     description:
       "Depo, gemi, konteyner ve tahıl ürünlerinde gaz uygulamasıyla derinlemesine haşere imhası.",
     longDescription:
-      "Kapalı hacimlerde gaz halindeki ilaçlarla yapılan fümigasyon uygulaması, diğer yöntemlerle ulaşılamayan gizli alanlardaki haşereleri de etkisiz hale getirir. Uygulama, kapalı alan güvenliği gözetilerek planlanır.",
+      "Fümigasyon, kapalı hacimlerdeki zararlı riskleri için değerlendirilebilen bir yöntemdir. Uygunluğu, yöntem ve güvenlik koşulları keşifte belirlenir.",
     icon: "wind",
     subServices: [
       {
@@ -103,7 +103,7 @@ export const SERVICES: ServiceItem[] = [
         title: "Tarihi Eser Fümigasyonu",
         icon: "landmark",
         description:
-          "Müze ve arşiv gibi hassas tarihi eserlerde malzemeye zarar vermeyen, kontrollü gaz uygulaması gerçekleştiriyoruz.",
+          "Müze ve arşiv gibi hassas alanlarda malzeme türü ve riskler değerlendirilerek uygun yöntem planlanır.",
       },
       {
         title: "Ambar/Depo Fümigasyonu",
@@ -158,7 +158,7 @@ export const SERVICES: ServiceItem[] = [
       },
     ],
     whyUs: [
-      "Bitki türüne özel, seçici etkili ürünlerle çevreye duyarlı uygulama yapıyoruz",
+      "Bitki türüne ve çevresel koşullara göre uygulama yöntemini değerlendiriyoruz",
       "Mevsimsel bakım takvimi ile önleyici koruma sağlıyoruz",
       "Peyzaj mimarları ve bahçıvanlarla koordineli çalışıyoruz",
       "Uzun vadeli sözleşmelerde indirimli periyodik bakım sunuyoruz",
