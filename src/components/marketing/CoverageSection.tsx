@@ -28,7 +28,7 @@ export default function CoverageSection() {
   const hoveredDistrict = DISTRICTS.find((d) => d.name === hovered);
 
   return (
-    <section className="bg-ink py-16 sm:py-24">
+    <section id="hizmet-bolgeleri" className="scroll-mt-20 bg-ink py-14 sm:py-24">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 24 }}
@@ -38,7 +38,7 @@ export default function CoverageSection() {
           className="mx-auto max-w-2xl text-center"
         >
           <h2 className="text-3xl font-extrabold text-white sm:text-4xl">
-            Bursa Genelinde Kesintisiz Hizmet.
+            Bursa&apos;da Hizmet Bölgelerimiz
           </h2>
           <p className="mt-4 text-base text-white/60 sm:text-lg">
             Nilüfer, Osmangazi, Yıldırım, Mudanya, Gemlik ve Karacabey&apos;de
@@ -46,7 +46,7 @@ export default function CoverageSection() {
           </p>
         </motion.div>
 
-        <div className="mt-16 grid grid-cols-1 items-center gap-12 lg:grid-cols-2 lg:gap-8">
+        <div className="mt-10 grid grid-cols-1 items-center gap-10 sm:mt-16 lg:grid-cols-2 lg:gap-8">
           <motion.div
             initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -84,28 +84,6 @@ export default function CoverageSection() {
                     whileInView={{ opacity: 1, scale: 1 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.4, delay: 0.2 + i * 0.08 }}
-                  />
-                  <motion.circle
-                    cx={d.x}
-                    cy={d.y}
-                    r="6"
-                    fill="none"
-                    stroke="#5DA130"
-                    strokeWidth="1.5"
-                    initial={{ opacity: 0 }}
-                    whileInView={{
-                      opacity: [0, 0.7, 0],
-                      scale: [1, 2.8, 2.8],
-                    }}
-                    viewport={{ once: false }}
-                    transition={{
-                      duration: 2.2,
-                      delay: i * 0.3,
-                      repeat: Infinity,
-                      repeatDelay: 1.2,
-                      ease: "easeOut",
-                    }}
-                    style={{ transformOrigin: `${d.x}px ${d.y}px` }}
                   />
                   <text
                     x={d.x}

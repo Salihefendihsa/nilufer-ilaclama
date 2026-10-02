@@ -76,7 +76,7 @@ export default function ServiceDetailPage({ params }: PageProps) {
           className="absolute inset-0 bg-gradient-to-br from-ink via-ink to-primary-green/30"
         />
 
-        <div className="relative mx-auto max-w-5xl px-4 py-24 sm:px-6 lg:px-8">
+        <div className="relative mx-auto max-w-5xl px-4 py-16 sm:px-6 sm:py-24 lg:px-8">
           <Link
             href="/hizmetlerimiz"
             className="text-sm font-medium text-white/60 transition-colors hover:text-primary-green"
@@ -84,11 +84,11 @@ export default function ServiceDetailPage({ params }: PageProps) {
             ← Hizmetlerimiz
           </Link>
 
-          <div className="mt-6 flex items-center gap-5">
+          <div className="mt-6 flex flex-col items-start gap-4 sm:flex-row sm:items-center sm:gap-5">
             <div className="flex h-16 w-16 shrink-0 items-center justify-center rounded-2xl bg-primary-green/15 text-primary-green">
               <Icon size={30} strokeWidth={1.8} />
             </div>
-            <h1 className="text-3xl font-extrabold text-white sm:text-4xl">
+            <h1 className="min-w-0 break-words text-[1.75rem] font-extrabold leading-tight text-white sm:text-4xl">
               {service.title}
             </h1>
           </div>
@@ -99,7 +99,7 @@ export default function ServiceDetailPage({ params }: PageProps) {
         </div>
       </section>
 
-      <section className="bg-white px-4 py-20 sm:px-6 lg:px-8">
+      <section className="bg-white px-4 py-14 sm:py-20 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-5xl">
           <h2 className="text-2xl font-extrabold text-ink sm:text-3xl">
             Alt Hizmetlerimiz
@@ -126,7 +126,7 @@ export default function ServiceDetailPage({ params }: PageProps) {
             })}
           </div>
 
-          <div className="mt-16 rounded-2xl border border-ink/10 bg-ink/[0.02] p-8">
+          <div className="mt-10 sm:mt-16 rounded-2xl border border-ink/10 bg-ink/[0.02] p-8">
             <h2 className="text-xl font-bold text-ink">
               Neden Bizi Tercih Etmelisiniz
             </h2>
@@ -140,7 +140,7 @@ export default function ServiceDetailPage({ params }: PageProps) {
             </ul>
           </div>
 
-          <div className="mt-14 flex flex-col items-center gap-4 rounded-2xl bg-primary-green/5 p-8 text-center">
+          <div className="mt-10 sm:mt-14 flex flex-col items-center gap-4 rounded-2xl bg-primary-green/5 p-8 text-center">
             <h2 className="text-xl font-bold text-ink">
               {service.title} için Ücretsiz Keşif Talep Edin
             </h2>

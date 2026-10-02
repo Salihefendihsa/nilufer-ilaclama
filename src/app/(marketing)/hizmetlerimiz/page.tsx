@@ -21,7 +21,7 @@ const ICONS: Record<ServiceIcon, LucideIcon> = {
 export default function HizmetlerimizPage() {
   return (
     <>
-    <section className="bg-white px-4 py-20 sm:px-6 lg:px-8">
+    <section className="bg-white px-4 py-14 sm:py-20 sm:px-6 lg:px-8">
       <div className="mx-auto max-w-5xl">
         <div className="text-center">
           <h1 className="text-3xl font-extrabold text-ink sm:text-4xl">
@@ -33,7 +33,7 @@ export default function HizmetlerimizPage() {
           </p>
         </div>
 
-        <div className="mt-14 space-y-6">
+        <div className="mt-10 sm:mt-14 space-y-6">
           {SERVICES.map((service) => {
             const Icon = ICONS[service.icon];
             return (

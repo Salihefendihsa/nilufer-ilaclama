@@ -19,7 +19,7 @@ const VALUES = [
     icon: Target,
     title: "Misyonumuz",
     description:
-      "Her müşterimize, insan ve çevre sağlığını önceleyen, kalıcı ve şeffaf çözümler sunarak yaşam alanlarını güvenli kılmak.",
+      "İnsan ve çevre sağlığına ilişkin koşulları gözeterek ihtiyaca uygun yöntemleri ve hizmet kapsamını açıkça paylaşmak.",
   },
   {
     icon: ShieldCheck,
@@ -31,7 +31,7 @@ const VALUES = [
 
 export default function KurumsalPage() {
   return (
-    <section className="bg-white px-4 py-20 sm:px-6 lg:px-8">
+    <section className="bg-white px-4 py-14 sm:py-20 sm:px-6 lg:px-8">
       <div className="mx-auto max-w-4xl">
         <div className="text-center">
           <h1 className="text-3xl font-extrabold text-ink sm:text-4xl">Kurumsal</h1>
@@ -43,7 +43,7 @@ export default function KurumsalPage() {
             Nilüfer İlaçlama, Bursa&apos;da konut, işyeri ve endüstriyel
             tesislere yönelik ilaçlama ve haşere kontrol hizmetleri
             sunmaktadır. Temel önceliğimiz; insan sağlığına ve çevreye
-            özen gösteren, kalıcı ve güvenilir çözümler üretmektir.
+            özen gösteren, ihtiyaca uygun uygulama planları hazırlamaktır.
           </p>
           <p>
             Uygulama öncesinde mekânı inceler, kapsamı ve yöntemi sizinle
@@ -56,7 +56,7 @@ export default function KurumsalPage() {
           </p>
         </div>
 
-        <div className="mt-16 grid grid-cols-1 gap-6 sm:grid-cols-3">
+        <div className="mt-10 sm:mt-16 grid grid-cols-1 gap-6 sm:grid-cols-3">
           {VALUES.map((value) => {
             const Icon = value.icon;
             return (

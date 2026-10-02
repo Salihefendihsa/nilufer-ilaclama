@@ -4,7 +4,7 @@ import { COMPANY, mapEmbedUrl } from "@/lib/data/company";
 
 export default function IletisimPage() {
   return (
-    <section className="bg-white px-4 py-20 sm:px-6 lg:px-8">
+    <section className="bg-white px-4 py-14 sm:py-20 sm:px-6 lg:px-8">
       <div className="mx-auto max-w-6xl">
         <div className="text-center">
           <h1 className="text-3xl font-extrabold text-ink sm:text-4xl">İletişim</h1>
@@ -13,7 +13,7 @@ export default function IletisimPage() {
           </p>
         </div>
 
-        <div className="mt-14 grid grid-cols-1 gap-12 lg:grid-cols-2">
+        <div className="mt-10 sm:mt-14 grid grid-cols-1 gap-12 lg:grid-cols-2">
           <div>
             <ul className="space-y-5">
               <li className="flex items-start gap-3">

@@ -59,7 +59,7 @@ const STEPS: Step[] = [
 
 export default function HowItWorks() {
   return (
-    <section id="nasil-calisir" className="scroll-mt-20 bg-white py-24">
+    <section id="nasil-calisir" className="scroll-mt-20 bg-white py-16 sm:py-24">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 24 }}
@@ -85,7 +85,7 @@ export default function HowItWorks() {
             hidden: {},
             visible: { transition: { staggerChildren: 0.1 } },
           }}
-          className="mt-16 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3"
+          className="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:mt-16 sm:grid-cols-2 lg:grid-cols-3"
         >
           {STEPS.map((step) => {
             const Icon = step.icon;

@@ -13,12 +13,13 @@ const QUICK_LINKS = [
   { label: "S.S.S", href: "/sss" },
   { label: "Şubelerimiz", href: "/subelerimiz" },
   { label: "Blog", href: "/blog" },
+  { label: "Ücretsiz Keşif", href: "/teklif" },
 ];
 
 export default function Footer() {
   return (
     <footer className="bg-ink text-white">
-      <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
+      <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 sm:py-16 lg:px-8">
         <div className="grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-4">
           <div>
             <div className="flex items-center gap-2.5">
@@ -117,21 +118,6 @@ export default function Footer() {
               WhatsApp&apos;tan Yazın
             </a>
           </div>
-        </div>
-
-        <div className="mt-12 flex flex-col items-start gap-4 border-t border-white/10 pt-10 sm:flex-row sm:items-center sm:justify-between">
-          <div>
-            <h3 className="text-sm font-semibold text-white">Ücretsiz keşif talep edin</h3>
-            <p className="mt-1 text-xs text-white/50">
-              Talebinizi iletin, ekibimiz sizi arasın.
-            </p>
-          </div>
-          <Link
-            href="/teklif"
-            className="inline-flex min-h-11 items-center justify-center rounded-full bg-primary-red px-6 py-2.5 text-sm font-semibold text-white transition-colors duration-300 hover:bg-primary-green"
-          >
-            Teklif Al
-          </Link>
         </div>
 
         <div className="mt-10 border-t border-white/10 pt-6 text-center text-xs text-white/40">

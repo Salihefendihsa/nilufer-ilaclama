@@ -14,7 +14,7 @@ export const PACKAGES: PackageItem[] = [
     slug: "ev-paketi",
     name: "Ev Paketi",
     tagline: "Konutlar için temel koruma",
-    price: "Teklif Alın",
+    price: "Keşif sonrası teklif",
     period: "",
     featured: false,
     features: [
@@ -25,13 +25,13 @@ export const PACKAGES: PackageItem[] = [
       "Uygulama sonrası takip",
       "Telefon desteği",
     ],
-    ctaLabel: "Paketi Seç",
+    ctaLabel: "Keşif Talep Et",
   },
   {
     slug: "isyeri-paketi",
     name: "İşyeri Paketi",
     tagline: "İşletmeler için kapsamlı çözüm",
-    price: "Teklif Alın",
+    price: "Keşif sonrası teklif",
     period: "",
     featured: true,
     features: [
@@ -42,13 +42,13 @@ export const PACKAGES: PackageItem[] = [
       "Öncelikli randevu ve hızlı müdahale",
       "Öncelikli destek (kapsam sözleşmede belirlenir)",
     ],
-    ctaLabel: "Paketi Seç",
+    ctaLabel: "Keşif Talep Et",
   },
   {
     slug: "kurumsal-paket",
     name: "Kurumsal Paket",
     tagline: "Büyük ölçekli tesisler için özel SLA",
-    price: "Teklif Alın",
+    price: "Keşif sonrası teklif",
     period: "",
     featured: false,
     features: [
@@ -59,7 +59,7 @@ export const PACKAGES: PackageItem[] = [
       "Personel eğitimi",
       "Özel hesap yöneticisi",
     ],
-    ctaLabel: "Teklif Alın",
+    ctaLabel: "Keşif Talep Et",
   },
 ];
 

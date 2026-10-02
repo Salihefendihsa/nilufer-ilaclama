@@ -41,7 +41,7 @@ const OPTIONS: Option[] = [
 
 export default function ContactOptions() {
   return (
-    <section className="bg-white py-16 sm:py-24">
+    <section id="iletisim-yollari" className="scroll-mt-20 bg-white py-14 sm:py-24">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-2xl text-center">
           <h2 className="text-3xl font-extrabold text-ink sm:text-4xl">
@@ -53,7 +53,7 @@ export default function ContactOptions() {
           </p>
         </div>
 
-        <div className="mt-12 grid grid-cols-1 gap-5 md:grid-cols-3">
+        <div className="mt-10 grid grid-cols-1 gap-4 sm:mt-12 md:grid-cols-3 md:gap-5">
           {OPTIONS.map((option, i) => {
             const Icon = option.icon;
             const className =

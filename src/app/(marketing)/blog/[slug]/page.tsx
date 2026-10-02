@@ -29,7 +29,7 @@ export default function BlogPostPage({ params }: PageProps) {
   const otherPosts = BLOG_POSTS.filter((p) => p.slug !== post.slug).slice(0, 3);
 
   return (
-    <article className="bg-white px-4 py-20 sm:px-6 lg:px-8">
+    <article className="bg-white px-4 py-14 sm:py-20 sm:px-6 lg:px-8">
       <div className="mx-auto max-w-3xl">
         <Link
           href="/blog"
@@ -44,7 +44,7 @@ export default function BlogPostPage({ params }: PageProps) {
           </span>
           {post.date} · {post.author}
         </p>
-        <h1 className="mt-2 text-3xl font-extrabold leading-tight text-ink sm:text-4xl">
+        <h1 className="mt-2 text-[1.75rem] font-extrabold leading-tight text-ink sm:text-4xl">
           {post.title}
         </h1>
 
@@ -59,7 +59,7 @@ export default function BlogPostPage({ params }: PageProps) {
           garantisi yerine geçmez. Hizmet kapsamı keşif ve teklifte netleştirilir.
         </p>
 
-        <div className="mt-14 rounded-2xl border border-primary-green/30 bg-primary-green/5 p-6">
+        <div className="mt-10 sm:mt-14 rounded-2xl border border-primary-green/30 bg-primary-green/5 p-6">
           <p className="text-sm font-semibold text-ink">
             Bu konuda yardıma mı ihtiyacınız var?
           </p>

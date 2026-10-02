@@ -5,11 +5,11 @@ import { motion } from "framer-motion";
 import { CheckCircle2 } from "lucide-react";
 import { PACKAGES } from "@/lib/data/packages";
 
-export default function PricingSection() {
+export default function PricingSection({ showHeading = true }: { showHeading?: boolean }) {
   return (
-    <section className="bg-gradient-to-br from-ink via-ink to-primary-green/15 py-24">
+    <section id="bakim-paketleri" className="scroll-mt-20 bg-gradient-to-br from-ink via-ink to-primary-green/15 py-16 sm:py-24">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <motion.div
+        {showHeading && <motion.div
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.3 }}
@@ -22,9 +22,9 @@ export default function PricingSection() {
           <p className="mt-4 text-base text-white/60 sm:text-lg">
             Ziyaret sıklığı, hizmet kapsamı ve fiyat keşif sonrası teklifte netleşir.
           </p>
-        </motion.div>
+        </motion.div>}
 
-        <div className="mt-14 grid grid-cols-1 gap-6 lg:grid-cols-3 lg:items-center">
+        <div className={`${showHeading ? "mt-10 sm:mt-14" : ""} grid grid-cols-1 gap-5 lg:grid-cols-3 lg:items-center lg:gap-6`}>
           {PACKAGES.map((pkg, i) => (
             <motion.div
               key={pkg.slug}
@@ -34,8 +34,8 @@ export default function PricingSection() {
               transition={{ duration: 0.5, delay: i * 0.1 }}
               className={
                 pkg.featured
-                  ? "relative rounded-3xl border-2 border-primary-green bg-white p-8 shadow-2xl shadow-primary-green/20 lg:scale-105"
-                  : "relative rounded-3xl border border-white/10 bg-white/95 p-8 shadow-lg"
+                  ? "relative rounded-3xl border-2 border-primary-green bg-white p-6 shadow-sm sm:p-8"
+                  : "relative rounded-3xl border border-white/10 bg-white/95 p-6 sm:p-8"
               }
             >
               {pkg.featured && (
@@ -48,7 +48,7 @@ export default function PricingSection() {
               <p className="mt-1 text-sm text-ink/50">{pkg.tagline}</p>
 
               <div className="mt-6 flex items-baseline gap-1">
-                <span className="text-3xl font-extrabold text-ink">
+                <span className="text-2xl font-bold text-ink">
                   {pkg.price}
                 </span>
                 {pkg.period && (
@@ -74,7 +74,7 @@ export default function PricingSection() {
               </ul>
 
               <Link
-                href={`/teklif?paket=${pkg.slug}`}
+                href="/teklif"
                 className={
                   pkg.featured
                     ? "mt-8 block rounded-full bg-primary-red px-6 py-3 text-center text-sm font-semibold text-white transition-colors duration-300 hover:bg-primary-green"
